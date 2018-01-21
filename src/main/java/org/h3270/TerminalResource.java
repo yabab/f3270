@@ -1,9 +1,5 @@
 package org.h3270;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.h3270.host.S3270.TerminalMode;
 import org.h3270.host.S3270.TerminalType;
 import org.junit.rules.ExternalResource;
@@ -14,7 +10,7 @@ import net.sf.f3270.Terminal;
 
 /**
  * Create a TerminalResource for JUnit Access.
- *  
+ * 
  * @author doerges
  *
  */
@@ -24,28 +20,47 @@ public class TerminalResource extends ExternalResource {
 	 * Logger
 	 */
 	private static final Logger logger = LoggerFactory.getLogger(TerminalResource.class);
-	
+
 	/**
 	 * Terminal
 	 */
 	private Terminal driver;
-	
+
+	/**
+	 * specify path to client, default to windows version
+	 */
+	private String pathToClient = "s3270/client/ws3270.exe";
+
 	/**
 	 * Host-Terminal
 	 */
-	String host;
-	
+	private String host;
+
 	/**
 	 * Port-Terminal
 	 */
-	int port;
+	private int port;
 
-	TerminalMode mode;
-	
-	TerminalType type;
-	
-	boolean showTerminal;
-	
+	/**
+	 * terminal mode: screen-size, use @see TerminalMode
+	 */
+	private TerminalMode mode;
+
+	/**
+	 * terminal type: monochrome or color, @see TerminalType
+	 */
+	private TerminalType type;
+
+	/**
+	 * show terminal during testrun if set to true
+	 */
+	private boolean showTerminal;
+
+	/**
+	 * show incoming and outgoing api calls
+	 */
+	private boolean debug;
+
 	/**
 	 * Standard constructor
 	 */
@@ -53,7 +68,7 @@ public class TerminalResource extends ExternalResource {
 		host = "";
 		port = 0;
 	}
-	
+
 	/**
 	 * FluentInterface: Define host
 	 * 
@@ -64,9 +79,10 @@ public class TerminalResource extends ExternalResource {
 		this.host = aHost;
 		return this;
 	}
-	
+
 	/**
 	 * FluentInterface: Define port
+	 * 
 	 * @param aPort
 	 * @return
 	 */
@@ -74,9 +90,10 @@ public class TerminalResource extends ExternalResource {
 		this.port = aPort;
 		return this;
 	}
-	
+
 	/**
 	 * FluentInterface: Define TerminalMode
+	 * 
 	 * @param aCodePage
 	 * @return
 	 */
@@ -84,9 +101,10 @@ public class TerminalResource extends ExternalResource {
 		this.mode = aMode;
 		return this;
 	}
-	
+
 	/**
 	 * FluentInterface: Define Type
+	 * 
 	 * @param aType
 	 * @return
 	 */
@@ -94,9 +112,10 @@ public class TerminalResource extends ExternalResource {
 		this.type = aType;
 		return this;
 	}
-	
+
 	/**
-	 * FluentInterface: Hold connection after TestCase. 
+	 * FluentInterface: Hold connection after TestCase.
+	 * 
 	 * @param aDecision
 	 * @return
 	 */
@@ -104,7 +123,23 @@ public class TerminalResource extends ExternalResource {
 		this.showTerminal = isVisible;
 		return this;
 	}
-	
+
+	/**
+	 * FluentInterface: control debug output
+	 * 
+	 * @param isDebug
+	 * @return
+	 */
+	public TerminalResource setDebug(boolean isDebug) {
+		this.debug = isDebug;
+		return this;
+	}
+
+	public TerminalResource pathToClient(String aPath) {
+		this.pathToClient = aPath;
+		return this;
+	}
+
 	/**
 	 * initialize resource before testcase.
 	 */
@@ -112,18 +147,12 @@ public class TerminalResource extends ExternalResource {
 	protected void before() throws Throwable {
 		connect();
 	}
-	
+
 	public void connect() throws Throwable {
-        String os = System.getProperty("os.name");
-        String s3270Path = "s3270";
-        if (os.toLowerCase().contains("windows")) {
-            // s3270Path = "s3270/cygwin/s3270";
-        	s3270Path = "s3270/client/ws3270";
-        }
-        this.driver = new Terminal(s3270Path, this.host, this.port, this.type, this.mode, this.showTerminal);
-        this.driver.connect();
+		this.driver = new Terminal(this.pathToClient, this.host, this.port, this.type, this.mode, this.showTerminal);
+		this.driver.connect();
 	}
-	
+
 	/**
 	 * Clean up resource after testcase.
 	 */
@@ -131,11 +160,11 @@ public class TerminalResource extends ExternalResource {
 	protected void after() {
 		disconnect();
 	}
-	
+
 	public void disconnect() {
-			this.driver.disconnect();
+		this.driver.disconnect();
 	}
-	
+
 	/**
 	 * Get driver instance.
 	 * 
