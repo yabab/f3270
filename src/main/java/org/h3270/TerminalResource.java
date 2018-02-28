@@ -1,10 +1,9 @@
 package org.h3270;
 
+import org.apache.log4j.Logger;
 import org.h3270.host.S3270.TerminalMode;
 import org.h3270.host.S3270.TerminalType;
 import org.junit.rules.ExternalResource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.sf.f3270.Terminal;
 
@@ -19,7 +18,7 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * Logger
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(TerminalResource.class);
+	private static final Logger logger = Logger.getLogger(TerminalResource.class);
 
 	/**
 	 * Terminal

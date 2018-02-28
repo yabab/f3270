@@ -124,6 +124,19 @@ public class Terminal {
         commandIssued("enter", null);
     }
 
+    public void sendCommand(String aCmd) {
+    	assertConnected();
+    	
+    	for (int i=0; i<aCmd.length(); i++) {
+    		char c = aCmd.charAt(i);
+    		String hex = String.format("0x%02X", (int) c);
+    		s3270.doCommand("key ("+hex+")");
+    	}
+    	
+    	updateScreen();
+    	commandIssued(aCmd, null);
+    }
+    
     public void pf(final int n) {
         assertConnected();
         s3270.submitScreen();
