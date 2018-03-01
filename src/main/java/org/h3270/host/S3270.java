@@ -212,6 +212,13 @@ public class S3270 {
                 logger.debug("---> " + command);
             }
 
+            // new s3270 terminal > 3.5 needs a short time.
+            try {
+				Thread.sleep(50L);
+			} catch (InterruptedException e) {
+				logger.error("i got interrupted.", e);
+			}
+            
             final List<String> lines = new ArrayList<String>();
             while (true) {
                 final String line = in.readLine();

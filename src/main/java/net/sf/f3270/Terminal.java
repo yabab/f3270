@@ -157,19 +157,6 @@ public class Terminal {
         updateScreen();
         commandIssued("enter", null);
     }
-
-    public void sendCommand(String aCmd) {
-    	assertConnected();
-    	
-    	for (int i=0; i<aCmd.length(); i++) {
-    		char c = aCmd.charAt(i);
-    		String hex = String.format("0x%02X", (int) c);
-    		s3270.doCommand("key ("+hex+")");
-    	}
-    	
-    	updateScreen();
-    	commandIssued(aCmd, null);
-    }
     
     public void pf(final int n) {
         assertConnected();
@@ -253,6 +240,22 @@ public class Terminal {
         commandIssued("write", null, buildParameters(fieldIdentifier, value));
     }
 
+    /**
+     * This writes just a value, without a specific field.
+     * @param value
+     */
+    public void write(String value) {
+    	assertConnected();
+    	
+    	for (int i=0; i<value.length(); i++) {
+    		char c = value.charAt(i);
+    		String hex = String.format("0x%02X", (int) c);
+    		s3270.doCommand("key ("+hex+")");
+    	}
+    	updateScreen();
+    	commandIssued("write", null, new Parameter("value", value));
+    }
+    
     /**
      * @deprecated Use {@link @link Terminal#read (FieldIdentifier)} instead
      */
@@ -420,7 +423,7 @@ public class Terminal {
      * set debug level of 3270 emulator
      * @param isDebug
      */
-    public void set3270Debug(boolean isDebug) {
+    public void setTerminalDebug(boolean isDebug) {
     	s3270.setDebug(isDebug);
     }
 }

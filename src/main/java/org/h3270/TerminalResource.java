@@ -152,7 +152,13 @@ public class TerminalResource extends ExternalResource {
 		connect();
 	}
 
+	/**
+	 * Connect to host
+	 * 
+	 * @throws Throwable
+	 */
 	public void connect() throws Throwable {
+		// connect to host with given settings.
 		this.driver = new Terminal(this.pathToClient, this.host, this.port, this.type, this.mode, this.showTerminal, this.debug);
 		this.driver.connect();
 	}
