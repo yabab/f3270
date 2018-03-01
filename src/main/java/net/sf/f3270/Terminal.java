@@ -25,10 +25,20 @@ public class Terminal {
     private final int port;
     private final TerminalType type;
     private final TerminalMode mode;
+    private final boolean debug;
 	private final boolean showTerminalWindow;
     private static final char MAINFRAME_BLANK_CHAR = '\u0000';
     private static final char SINGLE_SPACE = ' ';
 
+    /**
+     * Old-style constructor whithout debug flag.
+     * @param s3270Path
+     * @param hostname
+     * @param port
+     * @param type
+     * @param mode
+     * @param showTerminalWindow
+     */
     public Terminal(final String s3270Path, final String hostname, final int port, final TerminalType type,
             final TerminalMode mode, final boolean showTerminalWindow) {
         this.s3270Path = s3270Path;
@@ -37,10 +47,33 @@ public class Terminal {
         this.type = type;
         this.mode = mode;
 		this.showTerminalWindow = showTerminalWindow;
-
+		this.debug = false;
         addDefaultObservers();
     }
 
+    /**
+     * new constructor with debug flag
+     * @param s3270Path
+     * @param hostname
+     * @param port
+     * @param type
+     * @param mode
+     * @param showTerminalWindow
+     * @param isDebug
+     */
+    public Terminal(final String s3270Path, final String hostname, final int port, final TerminalType type,
+            final TerminalMode mode, final boolean showTerminalWindow, final boolean isDebug) {
+        this.s3270Path = s3270Path;
+        this.hostname = hostname;
+        this.port = port;
+        this.type = type;
+        this.mode = mode;
+		this.showTerminalWindow = showTerminalWindow;
+		this.debug = isDebug;
+        addDefaultObservers();
+    }
+    
+    
     private void addDefaultObservers() {
         addObserver(new TerminalScreenToConsoleObserver(this));
         if (showTerminalWindow) {
@@ -58,6 +91,7 @@ public class Terminal {
 
     public Terminal connect() {
         s3270 = new S3270(s3270Path, hostname, port, type, mode);
+        s3270.setDebug(this.debug);
         updateScreen();
         for (TerminalObserver observer : observers) {
             observer.connect(s3270);
@@ -382,4 +416,11 @@ public class Terminal {
         stream.println(SCREEN_SEPARATOR);
     }
 
+    /**
+     * set debug level of 3270 emulator
+     * @param isDebug
+     */
+    public void set3270Debug(boolean isDebug) {
+    	s3270.setDebug(isDebug);
+    }
 }

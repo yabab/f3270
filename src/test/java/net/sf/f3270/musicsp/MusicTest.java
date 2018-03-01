@@ -20,8 +20,8 @@ public class MusicTest {
 	private static final Logger logger = Logger.getLogger(MusicTest.class);
 
 	@Rule
-	public final TerminalResource terminal = new TerminalResource().withHost("127.0.0.1").withPort(623)
-			.withMode(TerminalMode.MODE_80_24).withType(TerminalType.TYPE_3279).showTerminalWindow(true);
+	public final TerminalResource terminal = new TerminalResource().withHost("127.0.0.1").withPort(23)
+			.withMode(TerminalMode.MODE_80_24).withType(TerminalType.TYPE_3279).showTerminalWindow(true).setDebug(true);
 
 	@Test
 	public void logInAndOutToMusic() {

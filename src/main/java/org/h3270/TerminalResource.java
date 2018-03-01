@@ -134,6 +134,11 @@ public class TerminalResource extends ExternalResource {
 		return this;
 	}
 
+	/**
+	 * FluentInterface: set path to local terminal emulator, including programm name and extension
+	 * @param aPath
+	 * @return
+	 */
 	public TerminalResource pathToClient(String aPath) {
 		this.pathToClient = aPath;
 		return this;
@@ -148,7 +153,7 @@ public class TerminalResource extends ExternalResource {
 	}
 
 	public void connect() throws Throwable {
-		this.driver = new Terminal(this.pathToClient, this.host, this.port, this.type, this.mode, this.showTerminal);
+		this.driver = new Terminal(this.pathToClient, this.host, this.port, this.type, this.mode, this.showTerminal, this.debug);
 		this.driver.connect();
 	}
 

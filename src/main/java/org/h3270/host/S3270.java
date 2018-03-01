@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -524,4 +525,15 @@ public class S3270 {
         }
     }
 
+    /**
+     * Set debug level programmatically, e.g. via TerminalResource
+     * @param enable
+     */
+    public void setDebug(boolean isDebug) {
+    	if (isDebug) {
+    		logger.setLevel(Level.DEBUG);
+    	} else {
+    		logger.setLevel(Level.INFO);
+    	}
+    }
 }
