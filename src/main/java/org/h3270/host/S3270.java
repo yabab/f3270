@@ -213,8 +213,9 @@ public class S3270 {
             }
 
             // new s3270 terminal > 3.5 needs a short time.
+            // @TODO: needs to be analyzed
             try {
-				Thread.sleep(50L);
+				Thread.sleep(100L);
 			} catch (InterruptedException e) {
 				logger.error("i got interrupted.", e);
 			}

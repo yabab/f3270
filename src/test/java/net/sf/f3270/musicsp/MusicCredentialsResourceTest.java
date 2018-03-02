@@ -13,12 +13,12 @@ import org.junit.Test;
 import net.sf.f3270.FieldIdentifier;
 import net.sf.f3270.MatchMode;
 
-public class MusicTest {
+public class MusicCredentialsResourceTest {
 
 	/**
 	 * Logger, use log4j
 	 */
-	private static final Logger logger = Logger.getLogger(MusicTest.class);
+	private static final Logger logger = Logger.getLogger(MusicCredentialsResourceTest.class);
 
 	/**
 	 * Setup TerminalResource
@@ -32,12 +32,12 @@ public class MusicTest {
 			.withMode(TerminalMode.MODE_80_24).withType(TerminalType.TYPE_3279).showTerminalWindow(true).setDebug(true);
 
 	/**
-	 * Use VM Args to set up user
-	 * -Dhost.app.user = <username>
-	 * -Dhost.app.password = <password>
+	 * Use programmatically configuration via Rule
+	 * setUsername(<username>)
+	 * setPassword(<password>)
 	 */
 	@Rule
-	public final UserCredentialsResource user = new UserCredentialsResource();
+	public final UserCredentialsResource user = new UserCredentialsResource().setUser("$000").setPassword("music");
 	
 	@Test
 	public void logInAndOutToMusic() {

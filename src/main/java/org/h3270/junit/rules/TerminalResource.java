@@ -1,4 +1,4 @@
-package org.h3270;
+package org.h3270.junit.rules;
 
 import org.apache.log4j.Logger;
 import org.h3270.host.S3270.TerminalMode;
@@ -158,6 +158,11 @@ public class TerminalResource extends ExternalResource {
 	 * @throws Throwable
 	 */
 	public void connect() throws Throwable {
+		// pathToClient can be overwritten by vm args
+		String tClientPath = System.getProperty("host.client.path");
+		if ((tClientPath != null) && !tClientPath.contentEquals("")) {
+			this.pathToClient = tClientPath;
+		}
 		// connect to host with given settings.
 		this.driver = new Terminal(this.pathToClient, this.host, this.port, this.type, this.mode, this.showTerminal, this.debug);
 		this.driver.connect();
