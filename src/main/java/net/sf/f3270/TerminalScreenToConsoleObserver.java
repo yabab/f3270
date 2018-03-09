@@ -4,8 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.text.MessageFormat;
 
-import org.apache.commons.lang.StringUtils;
-
 public class TerminalScreenToConsoleObserver extends TerminalObserver {
     private Terminal terminal;
     private String screenContents;
@@ -26,7 +24,7 @@ public class TerminalScreenToConsoleObserver extends TerminalObserver {
     @Override
     public void commandIssued(String command, String returned, Parameter... parameters) {
         super.commandIssued(command, returned, parameters);
-        String output = MessageFormat.format("{0}({1})", command, StringUtils.join(parameters, ", "));
+        String output = MessageFormat.format("{0}({1})", command, join(", ", parameters));
         if (returned != null) {
             output += ("=" + returned);
         }
@@ -40,5 +38,15 @@ public class TerminalScreenToConsoleObserver extends TerminalObserver {
             System.out.print(screenContents);
             screenContents = null;
         }
+    }
+    
+    private String join(String aDelimiter, Parameter...parameters ) {
+    	StringBuffer sb = new StringBuffer();
+    	 String del = "";
+    	 for( Parameter t: parameters ){
+    	     sb.append( del ).append( t );
+    	     del = aDelimiter;
+    	 }
+    	 return sb.toString();
     }
 }
