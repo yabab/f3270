@@ -1,51 +1,45 @@
 package net.sf.f3270.ipaustralia;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import net.sf.f3270.FieldIdentifier;
-import net.sf.f3270.IntegrationTestBase;
-import net.sf.f3270.MatchMode;
-import net.sf.f3270.Terminal;
-
+import org.h3270.host.S3270.TerminalMode;
+import org.h3270.host.S3270.TerminalType;
+import org.h3270.junit.rules.TerminalResource;
+import org.junit.Rule;
 import org.junit.Test;
 
-public class IpAustraliaTest extends IntegrationTestBase {
+import net.sf.f3270.FieldIdentifier;
 
-    public String getHostname() {
-        return "pericles.ipaustralia.gov.au";
-    }
+public class IpAustraliaTest {
 
-    public Mode getMode() {
-        return Mode.REPLAY;
-    }
-
+	@Rule
+	public final TerminalResource terminal = new TerminalResource().withHost("pericles.ipaustralia.gov.au").withPort(23)
+			.withMode(TerminalMode.MODE_80_24).withType(TerminalType.TYPE_3279).showTerminalWindow(true).setDebug(true);
+	
     @Test
     public void testIpAustralia() {
-        connect();
-
         assertText(terminal, "A U S T R A L I A");
-        terminal.enter();
+        terminal.getDriver().enter();
         assertText(terminal, "DISCLAIMER");
-        terminal.enter();
-        sleep(500);
+        terminal.getDriver().enter();
+        // sleep(500);
         assertText(terminal, "Logon in progress...");
-        sleep(500);
-        terminal.enter();
-        assertEquals(Boolean.TRUE, (Boolean)terminal.screenHasLabel(new FieldIdentifier("command")));
-        assertEquals(Boolean.FALSE, (Boolean)terminal.screenHasLabel(new FieldIdentifier("rubbish_label")));
-        terminal.write(new FieldIdentifier("command"), "1");
-        terminal.read(new FieldIdentifier("command"));
-        terminal.enter();
-        terminal.enter();
-        terminal.write(new FieldIdentifier("command"), "2");
-        terminal.enter();
-        terminal.write(new FieldIdentifier("trade mark number"), "123");
-
-        disconnect();
+        // sleep(500);
+        terminal.getDriver().enter();
+        assertEquals(Boolean.TRUE, (Boolean)terminal.getDriver().screenHasLabel(new FieldIdentifier("command")));
+        assertEquals(Boolean.FALSE, (Boolean)terminal.getDriver().screenHasLabel(new FieldIdentifier("rubbish_label")));
+        terminal.getDriver().write(new FieldIdentifier("command"), "1");
+        terminal.getDriver().read(new FieldIdentifier("command"));
+        terminal.getDriver().enter();
+        terminal.getDriver().enter();
+        terminal.getDriver().write(new FieldIdentifier("command"), "2");
+        terminal.getDriver().enter();
+        terminal.getDriver().write(new FieldIdentifier("trade mark number"), "123");
     }
 
-    private void assertText(Terminal terminal, String text) {
-        assertTrue("screen doesn't contain " + text, terminal.getScreenText().contains(text));
+    private void assertText(TerminalResource terminal, String text) {
+        assertTrue("screen doesn't contain " + text, terminal.getDriver().getScreenText().contains(text));
     }
 
 }
