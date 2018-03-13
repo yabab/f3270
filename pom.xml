@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.sf</groupId>
 	<artifactId>f3270</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 
 	<name>f3270</name>
 	<description>Java framework for testing mainframe (TN3270) applications </description>
