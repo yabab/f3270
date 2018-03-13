@@ -52,7 +52,6 @@
 				</dependencies>
 			</plugin>
 			<plugin>
-				<!-- Deploy the web site -->
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
 				<version>0.12</version>
@@ -65,9 +64,7 @@
 				</dependencies>
 				<configuration>
 					<message>Generated site</message>
-					<!-- The location where the site is uploaded -->
 					<path>${site.path}</path>
-					<!-- Use merge or override the content -->
 					<merge>true</merge>
 					<server>github</server>
 					<dryRun>true</dryRun>
@@ -77,7 +74,6 @@
 						<goals>
 							<goal>site</goal>
 						</goals>
-						<!-- select the Maven phase in which the plugin will be executed -->
 						<phase>site</phase>
 					</execution>
 				</executions>
@@ -95,7 +91,12 @@
 				<configuration>
                     <workingDirectory>${basedir}</workingDirectory>
                     <executable>${doxygen.executable.path}</executable>
-					<haveDot>false</haveDot>
+					<haveDot>true</haveDot>
+					<dotCleanup>true</dotCleanup>
+					<extractAll>true</extractAll>
+					<umlLook>true</umlLook>
+					<callGraph>true</callGraph>
+					<dotPath>${dot.executable.path}</dotPath>
 					<quiet>false</quiet>
 					<filePatterns>*.java</filePatterns>
 					<configurationFile>./doxygen.config</configurationFile>

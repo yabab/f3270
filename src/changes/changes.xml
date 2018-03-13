@@ -6,8 +6,29 @@
 	</properties>
 	<body>
 		<release version="1.0" date="2018-03-05" description="initial release">
-			<action dev="kdoerges" type="update">
-				Initial release. Ready for production. Updated dependencies.
+			<action dev="kdoerges" type="add">
+				Added maven support. Updated dependencies.
+			</action>
+			<action dev="kdoerges" type="add">
+				New TerminalResource rule for JUnit. Old s3270 emulator removed. Use new s3270 version >= 3.5 
+			</action>
+			<action dev="kdoerges" type="add">
+				New TerminalResource rule for JUnit 
+			</action>
+			<action dev="kdoerges" type="add">
+				New write command without setting input field  
+			</action>
+			<action dev="kdoerges" type="add">
+				Support Debug Mode, use &quot;setTerminalDebug(boolean isDebug)&quot; in Terminal API to enable emulator debug mode. 
+			</action>
+			<action dev="kdoerges" type="add">
+				new UserCredentialsResource rule for JUnit  
+			</action>
+			<action dev="kdoerges" type="add">
+				Add MusicSP function test to JUnit test area.  
+			</action>
+			<action dev="kdoerges" type="add">
+				FieldIdentifier is case sensitive by default now , implemented new CI_CONTAINS MatchMode for case insensitve contains   
 			</action>
 		</release>
 	</body>
