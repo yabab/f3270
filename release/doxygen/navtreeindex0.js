@@ -3,9 +3,9 @@ var NAVTREEINDEX0 =
 ".html":[1,0,0],
 ".html":[1,0,0,0,0,0],
 ".html":[1,0,1],
+".html":[1,0,0,0],
 ".html":[1,0,1,0],
 ".html":[1,0,1,0,0],
-".html":[1,0,0,0],
 ".html":[1,0,0,0,0],
 ".html":[1,0,1,0,1],
 ".html":[1,0,1,0,1,0],
@@ -45,6 +45,7 @@ var NAVTREEINDEX0 =
 "classnet_1_1sf_1_1f3270_1_1FieldIdentifier.html#a6a0e5b70fafef5bcbf8bb9886d11c5fb":[1,0,0,0,0,1,4],
 "classnet_1_1sf_1_1f3270_1_1FieldIdentifier.html#a7476962ca9541d429cb18c8abab99ef8":[1,0,0,0,0,1,1],
 "classnet_1_1sf_1_1f3270_1_1FieldIdentifier.html#ab731f27118f604d6e66fb3a8a671d72d":[1,0,0,0,0,1,5],
+"classnet_1_1sf_1_1f3270_1_1FieldIdentifier.html#ad97ae73652e3063f070815fb3d30c245":[1,0,0,0,0,1,6],
 "classnet_1_1sf_1_1f3270_1_1Parameter.html":[1,0,0,0,0,3],
 "classnet_1_1sf_1_1f3270_1_1Parameter.html#a070e4240abca5773ad1739b8415737a1":[1,0,0,0,0,3,1],
 "classnet_1_1sf_1_1f3270_1_1Parameter.html#a1ee304da797a3a6f5f8a7ac5eb6b640b":[1,0,0,0,0,3,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "classorg_1_1h3270_1_1junit_1_1rules_1_1UserCredentialsResource.html#ae451b8d15b911c6739b2a8e3a22db915":[1,0,1,0,1,0,1,6],
 "classorg_1_1h3270_1_1render_1_1TextRenderer.html":[1,0,1,0,2,1],
 "classorg_1_1h3270_1_1render_1_1TextRenderer.html#a0ddb57e2dcb5779b1bbcc23fe881d44e":[1,0,1,0,2,1,0],
-"classorg_1_1h3270_1_1render_1_1TextRenderer.html#a3d242696b722f613cf215c39a6ac2c41":[1,0,1,0,2,1,5],
-"classorg_1_1h3270_1_1render_1_1TextRenderer.html#a57ed1c65413f51a66d383e914904f6d4":[1,0,1,0,2,1,6]
+"classorg_1_1h3270_1_1render_1_1TextRenderer.html#a3d242696b722f613cf215c39a6ac2c41":[1,0,1,0,2,1,5]
 };
