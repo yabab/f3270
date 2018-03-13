@@ -43,7 +43,7 @@ public class MusicTest {
 	public void logInAndOutToMusic() {
 		terminal.getDriver().enter();
 		// no skip for identify by test part!
-		String tField = terminal.getDriver().read(new FieldIdentifier("Challenge:", 0, MatchMode.CONTAINS));
+		String tField = terminal.getDriver().read(new FieldIdentifier("challenge:", 0, MatchMode.CI_CONTAINS));
 		if (tField != null) {
 			logger.info("Token: " + tField.replaceAll("Challenge:", "").trim());
 		}
