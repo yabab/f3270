@@ -5,13 +5,15 @@ import static org.junit.Assert.assertTrue;
 import org.apache.log4j.Logger;
 import org.h3270.host.S3270.TerminalMode;
 import org.h3270.host.S3270.TerminalType;
-import org.h3270.junit.rules.TerminalResource;
-import org.h3270.junit.rules.UserCredentialsResource;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import net.sf.f3270.FieldIdentifier;
+import net.sf.f3270.IntegrationTests;
 import net.sf.f3270.MatchMode;
+import net.sf.f3270.junit.rules.TerminalResource;
+import net.sf.f3270.junit.rules.UserCredentialsResource;
 
 public class MusicTest {
 
@@ -39,6 +41,7 @@ public class MusicTest {
 	@Rule
 	public final UserCredentialsResource user = new UserCredentialsResource();
 	
+	@Category(IntegrationTests.class)
 	@Test
 	public void logInAndOutToMusic() {
 		terminal.getDriver().enter();

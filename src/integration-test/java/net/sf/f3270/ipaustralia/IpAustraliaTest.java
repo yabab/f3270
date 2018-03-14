@@ -5,11 +5,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.h3270.host.S3270.TerminalMode;
 import org.h3270.host.S3270.TerminalType;
-import org.h3270.junit.rules.TerminalResource;
 import org.junit.Rule;
 import org.junit.Test;
 
 import net.sf.f3270.FieldIdentifier;
+import net.sf.f3270.junit.rules.TerminalResource;
 
 public class IpAustraliaTest {
 

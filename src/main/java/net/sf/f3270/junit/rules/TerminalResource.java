@@ -1,4 +1,4 @@
-package org.h3270.junit.rules;
+package net.sf.f3270.junit.rules;
 
 import org.apache.log4j.Logger;
 import org.h3270.host.S3270.TerminalMode;

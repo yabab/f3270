@@ -1,4 +1,4 @@
-package org.h3270.junit.rules;
+package net.sf.f3270.junit.rules;
 
 import org.apache.log4j.Logger;
 import org.junit.rules.ExternalResource;
@@ -13,38 +13,41 @@ public class UserCredentialsResource extends ExternalResource {
 	private static final Logger logger = Logger.getLogger(UserCredentialsResource.class);
 
 	private String username;
-	
+
 	private String password;
-	
+
 	public UserCredentialsResource() {
 		this.username = null;
 		this.password = null;
 	}
-	
+
 	public UserCredentialsResource setUser(String aUsername) {
 		this.username = aUsername;
 		return this;
 	}
-	
+
 	public UserCredentialsResource setPassword(String aPassword) {
 		this.password = aPassword;
 		return this;
 	}
-	
+
 	/**
 	 * Read User / PW from arguments before executing testcase.
 	 */
 	@Override
 	protected void before() throws Throwable {
-		String aUser = System.getProperty("host.app.user");
-		if ((aUser != null) && (!aUser.contentEquals(""))) {
-			this.username = aUser;
-			logger.debug("username read from system environment.");
-		} 
-		if (this.username == null){
+		// if no user is defined programatically, it should be configured via system argument
+		if (this.username == null) {
+			String aUser = System.getProperty("host.app.user");
+			if ((aUser != null) && (!aUser.contentEquals(""))) {
+				this.username = aUser;
+				logger.debug("username read from system environment.");
+			}
+		}
+		if (this.username == null) {
 			throw new RuntimeException("UserCredentialsResource needs a given username.");
 		}
-		
+
 		String aPass = System.getProperty("host.app.password");
 		if ((aPass != null) && (!aPass.contentEquals(""))) {
 			this.password = aPass;
@@ -70,5 +73,5 @@ public class UserCredentialsResource extends ExternalResource {
 		// TODO Auto-generated method stub
 		return super.apply(base, description);
 	}
-	
+
 }

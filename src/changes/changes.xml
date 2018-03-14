@@ -5,7 +5,7 @@
 		<title>f3270</title>
 	</properties>
 	<body>
-		<release version="1.0" date="2018-03-05" description="initial release">
+		<release version="1.1.0" date="2018-03-13" description="initial release">
 			<action dev="kdoerges" type="add">
 				Added maven support. Updated dependencies.
 			</action>
@@ -30,6 +30,10 @@
 			<action dev="kdoerges" type="add">
 				FieldIdentifier is case sensitive by default now , implemented new CI_CONTAINS MatchMode for case insensitve contains   
 			</action>
+			<action dev="kdoerges" type="update">
+				Update of the build process to separate unit and integration test. Implemented categoy marker interfaces for UnitTests and IntegrationTests				   
+			</action>
+			
 		</release>
 	</body>
 </document>
