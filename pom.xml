@@ -137,13 +137,6 @@
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
 				<version>0.12</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.eclipse.mylyn.github</groupId>
-						<artifactId>org.eclipse.egit.github.core</artifactId>
-						<version>2.1.5</version>
-					</dependency>
-				</dependencies>
 				<configuration>
 					<message>Generated site</message>
 					<path>${site.path}</path>
@@ -162,7 +155,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<!-- reporting -->
 	<reporting>
 		<plugins>
@@ -178,6 +170,7 @@
 					<extractAll>true</extractAll>
 					<umlLook>true</umlLook>
 					<callGraph>true</callGraph>
+					<callerGraph>true</callerGraph>
 					<dotPath>${dot.executable.path}</dotPath>
 					<quiet>false</quiet>
 					<filePatterns>*.java</filePatterns>
