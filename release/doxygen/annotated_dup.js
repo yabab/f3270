@@ -6,6 +6,12 @@ var annotated_dup =
           [ "ide", null, [
             [ "Ide", "classnet_1_1sf_1_1f3270_1_1ide_1_1Ide.html", null ]
           ] ],
+          [ "junit", null, [
+            [ "rules", null, [
+              [ "TerminalResource", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource.html", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource" ],
+              [ "UserCredentialsResource", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1UserCredentialsResource.html", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1UserCredentialsResource" ]
+            ] ]
+          ] ],
           [ "FieldIdentifier", "classnet_1_1sf_1_1f3270_1_1FieldIdentifier.html", "classnet_1_1sf_1_1f3270_1_1FieldIdentifier" ],
           [ "MatchMode", "enumnet_1_1sf_1_1f3270_1_1MatchMode.html", "enumnet_1_1sf_1_1f3270_1_1MatchMode" ],
           [ "Parameter", "classnet_1_1sf_1_1f3270_1_1Parameter.html", "classnet_1_1sf_1_1f3270_1_1Parameter" ],
@@ -32,12 +38,6 @@ var annotated_dup =
           [ "Screen", "interfaceorg_1_1h3270_1_1host_1_1Screen.html", "interfaceorg_1_1h3270_1_1host_1_1Screen" ],
           [ "ScreenCharSequence", "classorg_1_1h3270_1_1host_1_1ScreenCharSequence.html", "classorg_1_1h3270_1_1host_1_1ScreenCharSequence" ],
           [ "UnknownHostException", "classorg_1_1h3270_1_1host_1_1UnknownHostException.html", "classorg_1_1h3270_1_1host_1_1UnknownHostException" ]
-        ] ],
-        [ "junit", null, [
-          [ "rules", null, [
-            [ "TerminalResource", "classorg_1_1h3270_1_1junit_1_1rules_1_1TerminalResource.html", "classorg_1_1h3270_1_1junit_1_1rules_1_1TerminalResource" ],
-            [ "UserCredentialsResource", "classorg_1_1h3270_1_1junit_1_1rules_1_1UserCredentialsResource.html", "classorg_1_1h3270_1_1junit_1_1rules_1_1UserCredentialsResource" ]
-          ] ]
         ] ],
         [ "render", null, [
           [ "Renderer", "interfaceorg_1_1h3270_1_1render_1_1Renderer.html", "interfaceorg_1_1h3270_1_1render_1_1Renderer" ],

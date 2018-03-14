@@ -34,7 +34,7 @@ var hierarchy =
     [ "net.sf.f3270.TerminalWindowIde", "classnet_1_1sf_1_1f3270_1_1TerminalWindowIde.html", null ],
     [ "net.sf.f3270.TrailObserver", "classnet_1_1sf_1_1f3270_1_1TrailObserver.html", null ],
     [ "ExternalResource", null, [
-      [ "org.h3270.junit.rules.TerminalResource", "classorg_1_1h3270_1_1junit_1_1rules_1_1TerminalResource.html", null ],
-      [ "org.h3270.junit.rules.UserCredentialsResource", "classorg_1_1h3270_1_1junit_1_1rules_1_1UserCredentialsResource.html", null ]
+      [ "net.sf.f3270.junit.rules.TerminalResource", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource.html", null ],
+      [ "net.sf.f3270.junit.rules.UserCredentialsResource", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1UserCredentialsResource.html", null ]
     ] ]
 ];
