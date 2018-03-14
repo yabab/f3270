@@ -2,3 +2,4 @@
 /target/
 /doxygen.config
 /.settings/
+/.classpath
