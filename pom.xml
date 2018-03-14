@@ -12,6 +12,17 @@
 
 	<url>https://github.com/vebqa/f3270</url>
 
+	<scm>
+		<url>https://github.com/vebqa/f3270</url>
+	</scm>
+
+	<licenses>
+		<license>
+			<name>GNU GPL v2</name>
+			<url>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</url>
+		</license>
+	</licenses>
+
 	<contributors>
 		<contributor>
 			<name>Karsten Doerges</name>
@@ -23,6 +34,8 @@
 		<site.path>release</site.path>
 		<skip.unit.tests>false</skip.unit.tests>
 		<skip.integration.tests>true</skip.integration.tests>
+		<!-- overwrite in settings by profile -->
+		<skip.publish.githubio>true</skip.publish.githubio>
 	</properties>
 
 	<build>
@@ -44,6 +57,11 @@
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.4.0.905</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jdeps-plugin</artifactId>
+				<version>3.1.1</version>
 			</plugin>
 			<!-- unit testing -->
 			<plugin>
@@ -131,7 +149,7 @@
 					<path>${site.path}</path>
 					<merge>true</merge>
 					<server>github</server>
-					<dryRun>false</dryRun>
+					<dryRun>${skip.publish.githubio}</dryRun>
 				</configuration>
 				<executions>
 					<execution>
@@ -194,6 +212,23 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.9.0</version>
+				<configuration>
+					<skipEmptyReport>false</skipEmptyReport>
+					<includeTests>true</includeTests>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>cpd</report>
+							<report>pmd</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>2.9</version>
 				<configuration>
@@ -204,20 +239,16 @@
 						<reports>
 							<report>index</report>
 							<report>summary</report>
-							<report>dependency-info</report>
 							<report>modules</report>
 							<report>license</report>
 							<report>project-team</report>
 							<report>scm</report>
 							<report>issue-tracking</report>
-							<report>mailing-list</report>
 							<report>dependency-management</report>
 							<report>dependencies</report>
 							<report>dependency-convergence</report>
-							<report>cim</report>
 							<report>plugin-management</report>
 							<report>plugins</report>
-							<report>distribution-management</report>
 						</reports>
 					</reportSet>
 				</reportSets>
