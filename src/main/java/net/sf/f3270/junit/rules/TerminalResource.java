@@ -165,6 +165,7 @@ public class TerminalResource extends ExternalResource {
 		}
 		// connect to host with given settings.
 		this.driver = new Terminal(this.pathToClient, this.host, this.port, this.type, this.mode, this.showTerminal, this.debug);
+		logger.info("connect to host (" + this.host + ":" + this.port + ")");
 		this.driver.connect();
 	}
 
