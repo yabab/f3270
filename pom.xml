@@ -52,6 +52,30 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.2</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/downloads</outputDirectory>
+							<resources>
+								<resource>
+								<directory>${basedir}/target</directory>
+									<includes>
+										<include>**/*.jar</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<!-- static code analysis -->
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>

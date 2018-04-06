@@ -5,7 +5,12 @@
 		<title>f3270</title>
 	</properties>
 	<body>
-		<release version="1.1.0" date="2018-03-13" description="initial release">
+		<release version="1.1.1-dev" date="2018-04-18" description="improve ZucchiniCF support">
+			<action dev="kdoerges" type="update">
+				Refactor vebtal api to make engine more independent.
+			</action>
+		</release>
+		<release version="1.1.0" date="2018-03-20" description="initial release with maven build">
 			<action dev="kdoerges" type="add">
 				Added maven support. Updated dependencies.
 			</action>
