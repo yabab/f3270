@@ -37,6 +37,8 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import com.github.vebqa.HostCharset;
+
 /**
  * A Terminal that connects to the host via s3270.
  * 
@@ -78,6 +80,7 @@ public class S3270 {
     private final int port;
     private final TerminalType type;
     private final TerminalMode mode;
+    private final HostCharset charset;
 
     private S3270Screen screen = null;
 
@@ -116,7 +119,7 @@ public class S3270 {
      * @throws org.h3270.host.S3270Exception
      *             for any other error not matched by the above
      */
-    public S3270(final String s3270Path, final String hostname, final int port, final TerminalType type,
+    public S3270(final String s3270Path, final String hostname, final int port, final TerminalType type, final HostCharset hostCharset,
             final TerminalMode mode) {
 
         this.s3270Path = s3270Path;
@@ -124,12 +127,13 @@ public class S3270 {
         this.port = port;
         this.type = type;
         this.mode = mode;
+        this.charset = hostCharset;
         this.screen = new S3270Screen();
 
         checkS3270PathValid(s3270Path);
 
-        final String commandLine = String.format("%s -model %s-%d %s:%d", s3270Path, type.getType(), mode.getMode(),
-                hostname, port);
+        final String commandLine = String.format("%s -model %s-%d %s:%d -charset %s", s3270Path, type.getType(), mode.getMode(),
+                hostname, port, hostCharset.getCharsetName());
         try {
             logger.info("starting " + commandLine);
             s3270 = Runtime.getRuntime().exec(commandLine);
@@ -143,13 +147,29 @@ public class S3270 {
         } catch (final IOException ex) {
             throw new RuntimeException("IO Exception while starting s3270", ex);
         }
+    
+    }
+
+    /**
+     * Old constructor without host charset. Charset is defaulted to "bracket", which
+     * is also the default in s3270 terminal emulation.
+     * 
+     * @param s3270Path
+     * @param hostname
+     * @param port
+     * @param type
+     * @param mode
+     */
+    public S3270(final String s3270Path, final String hostname, final int port, final TerminalType type,
+            final TerminalMode mode) {
+    	this(s3270Path, hostname, port, type, HostCharset.BRACKET, mode);
     }
 
     private void checkS3270PathValid(String path) {
         try {
             Runtime.getRuntime().exec(path + " -v");
         } catch (Exception e) {
-            throw new RuntimeException("could not find s3270 executable in the path");
+            throw new RuntimeException("could not find s3270 executable in the path: " + path);
         }
     }
 

@@ -13,6 +13,8 @@ import org.h3270.host.S3270.TerminalMode;
 import org.h3270.host.S3270.TerminalType;
 import org.h3270.render.TextRenderer;
 
+import com.github.vebqa.HostCharset;
+
 public class Terminal {
     private static final int SCREEN_WIDTH_IN_CHARS = 80;
 
@@ -26,6 +28,7 @@ public class Terminal {
     private final TerminalType type;
     private final TerminalMode mode;
     private final boolean debug;
+    private final HostCharset charset;
 	private final boolean showTerminalWindow;
     private static final char MAINFRAME_BLANK_CHAR = '\u0000';
     private static final char SINGLE_SPACE = ' ';
@@ -40,12 +43,13 @@ public class Terminal {
      * @param showTerminalWindow
      */
     public Terminal(final String s3270Path, final String hostname, final int port, final TerminalType type,
-            final TerminalMode mode, final boolean showTerminalWindow) {
+            final TerminalMode mode, final HostCharset charset, final boolean showTerminalWindow) {
         this.s3270Path = s3270Path;
         this.hostname = hostname;
         this.port = port;
         this.type = type;
         this.mode = mode;
+        this.charset = charset;
 		this.showTerminalWindow = showTerminalWindow;
 		this.debug = false;
         addDefaultObservers();
@@ -62,12 +66,13 @@ public class Terminal {
      * @param isDebug
      */
     public Terminal(final String s3270Path, final String hostname, final int port, final TerminalType type,
-            final TerminalMode mode, final boolean showTerminalWindow, final boolean isDebug) {
+            final TerminalMode mode, final HostCharset charset, final boolean showTerminalWindow, final boolean isDebug) {
         this.s3270Path = s3270Path;
         this.hostname = hostname;
         this.port = port;
         this.type = type;
         this.mode = mode;
+        this.charset = charset;
 		this.showTerminalWindow = showTerminalWindow;
 		this.debug = isDebug;
         addDefaultObservers();
@@ -90,7 +95,7 @@ public class Terminal {
     }
 
     public Terminal connect() {
-        s3270 = new S3270(s3270Path, hostname, port, type, mode);
+        s3270 = new S3270(this.s3270Path, this.hostname, this.port, this.type, this.charset, this.mode);
         s3270.setDebug(this.debug);
         updateScreen();
         for (TerminalObserver observer : observers) {

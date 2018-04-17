@@ -9,6 +9,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
+import com.github.vebqa.HostCharset;
+
 import net.sf.f3270.FieldIdentifier;
 import net.sf.f3270.IntegrationTests;
 import net.sf.f3270.MatchMode;
@@ -31,7 +33,7 @@ public class MusicCredentialsResourceTest {
 	 */
 	@Rule
 	public final TerminalResource terminal = new TerminalResource().withHost("127.0.0.1").withPort(23)
-			.withMode(TerminalMode.MODE_80_24).withType(TerminalType.TYPE_3279).showTerminalWindow(true).setDebug(true);
+			.withMode(TerminalMode.MODE_80_24).withType(TerminalType.TYPE_3279).setHostCharset(HostCharset.BRACKET).showTerminalWindow(true).setDebug(true);
 
 	/**
 	 * Use programmatically configuration via Rule

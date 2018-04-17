@@ -5,6 +5,8 @@ import org.h3270.host.S3270.TerminalMode;
 import org.h3270.host.S3270.TerminalType;
 import org.junit.rules.ExternalResource;
 
+import com.github.vebqa.HostCharset;
+
 import net.sf.f3270.Terminal;
 
 /**
@@ -50,6 +52,11 @@ public class TerminalResource extends ExternalResource {
 	 */
 	private TerminalType type;
 
+	/**
+	 * host charset; default to bracket which is the default codepage of s3270.
+	 */
+	private HostCharset charset = HostCharset.BRACKET;
+	
 	/**
 	 * show terminal during testrun if set to true
 	 */
@@ -134,6 +141,11 @@ public class TerminalResource extends ExternalResource {
 		return this;
 	}
 
+	public TerminalResource setHostCharset(HostCharset aCharset) {
+		this.charset = aCharset;
+		return this;
+	}
+	
 	/**
 	 * FluentInterface: set path to local terminal emulator, including programm name and extension
 	 * @param aPath
@@ -164,8 +176,8 @@ public class TerminalResource extends ExternalResource {
 			this.pathToClient = tClientPath;
 		}
 		// connect to host with given settings.
-		this.driver = new Terminal(this.pathToClient, this.host, this.port, this.type, this.mode, this.showTerminal, this.debug);
-		logger.info("connect to host (" + this.host + ":" + this.port + ")");
+		this.driver = new Terminal(this.pathToClient, this.host, this.port, this.type, this.mode, this.charset, this.showTerminal, this.debug);
+		logger.info("connect to host (" + this.host + ":" + this.port + ") with charset: " + this.charset);
 		this.driver.connect();
 	}
 
