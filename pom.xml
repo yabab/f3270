@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.sf.f3270</groupId>
+	<groupId>com.github.vebqa</groupId>
 	<artifactId>f3270</artifactId>
 	<version>1.1.0</version>
 
@@ -66,7 +67,7 @@
 							<outputDirectory>${basedir}/target/site/downloads</outputDirectory>
 							<resources>
 								<resource>
-								<directory>${basedir}/target</directory>
+									<directory>${basedir}/target</directory>
 									<includes>
 										<include>**/*.jar</include>
 									</includes>
