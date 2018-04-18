@@ -13,6 +13,7 @@ var annotated_dup =
             ] ]
           ] ],
           [ "FieldIdentifier", "classnet_1_1sf_1_1f3270_1_1FieldIdentifier.html", "classnet_1_1sf_1_1f3270_1_1FieldIdentifier" ],
+          [ "HostCharset", "enumnet_1_1sf_1_1f3270_1_1HostCharset.html", "enumnet_1_1sf_1_1f3270_1_1HostCharset" ],
           [ "MatchMode", "enumnet_1_1sf_1_1f3270_1_1MatchMode.html", "enumnet_1_1sf_1_1f3270_1_1MatchMode" ],
           [ "Parameter", "classnet_1_1sf_1_1f3270_1_1Parameter.html", "classnet_1_1sf_1_1f3270_1_1Parameter" ],
           [ "Terminal", "classnet_1_1sf_1_1f3270_1_1Terminal.html", "classnet_1_1sf_1_1f3270_1_1Terminal" ],

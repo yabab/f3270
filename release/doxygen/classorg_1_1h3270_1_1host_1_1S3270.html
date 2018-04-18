@@ -76,6 +76,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a113dea769c99ce403946ab4463aee34d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1h3270_1_1host_1_1S3270.html#a113dea769c99ce403946ab4463aee34d">S3270</a> (final String s3270Path, final String hostname, final int port, final <a class="el" href="enumorg_1_1h3270_1_1host_1_1S3270_1_1TerminalType.html">TerminalType</a> type, final <a class="el" href="enumnet_1_1sf_1_1f3270_1_1HostCharset.html">HostCharset</a> hostCharset, final <a class="el" href="enumorg_1_1h3270_1_1host_1_1S3270_1_1TerminalMode.html">TerminalMode</a> mode)</td></tr>
+<tr class="separator:a113dea769c99ce403946ab4463aee34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4604fdeca1a82a26e69687d15821bb10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1h3270_1_1host_1_1S3270.html#a4604fdeca1a82a26e69687d15821bb10">S3270</a> (final String s3270Path, final String hostname, final int port, final <a class="el" href="enumorg_1_1h3270_1_1host_1_1S3270_1_1TerminalType.html">TerminalType</a> type, final <a class="el" href="enumorg_1_1h3270_1_1host_1_1S3270_1_1TerminalMode.html">TerminalMode</a> mode)</td></tr>
 <tr class="separator:a4604fdeca1a82a26e69687d15821bb10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88217a6ad6de703b6acb447593226e6d"><td class="memItemLeft" align="right" valign="top"><a id="a88217a6ad6de703b6acb447593226e6d"></a>
@@ -156,10 +158,88 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
 <dl class="section version"><dt>Version</dt><dd></dd></dl>
 <dl class="section rcs"><dt>Id</dt><dd><a class="el" href="S3270_8java_source.html">S3270.java</a>,v 1.26 2007/03/02 09:37:34 spiegel Exp </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00046">46</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00048">48</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a113dea769c99ce403946ab4463aee34d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a113dea769c99ce403946ab4463aee34d">&#9670;&nbsp;</a></span>S3270() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">org.h3270.host.S3270.S3270 </td>
+          <td>(</td>
+          <td class="paramtype">final String&#160;</td>
+          <td class="paramname"><em>s3270Path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">final String&#160;</td>
+          <td class="paramname"><em>hostname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">final int&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">final <a class="el" href="enumorg_1_1h3270_1_1host_1_1S3270_1_1TerminalType.html">TerminalType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">final <a class="el" href="enumnet_1_1sf_1_1f3270_1_1HostCharset.html">HostCharset</a>&#160;</td>
+          <td class="paramname"><em>hostCharset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">final <a class="el" href="enumorg_1_1h3270_1_1host_1_1S3270_1_1TerminalMode.html">TerminalMode</a>&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a new <a class="el" href="classorg_1_1h3270_1_1host_1_1S3270.html">S3270</a> object. The s3270 subprocess (which does the communication with the host) is immediately started and connected to the target host. If this fails, the constructor will throw an appropriate exception.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hostname</td><td>the name of the host to connect to </td></tr>
+    <tr><td class="paramname">configuration</td><td>the h3270 configuration, derived from h3270-config.xml </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classorg_1_1h3270_1_1host_1_1UnknownHostException.html">org.h3270.host.UnknownHostException</a></td><td>if <code>hostname</code> cannot be resolved </td></tr>
+    <tr><td class="paramname"><a class="el" href="classorg_1_1h3270_1_1host_1_1HostUnreachableException.html">org.h3270.host.HostUnreachableException</a></td><td>if the host cannot be reached </td></tr>
+    <tr><td class="paramname"><a class="el" href="classorg_1_1h3270_1_1host_1_1S3270Exception.html">org.h3270.host.S3270Exception</a></td><td>for any other error not matched by the above </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00122">122</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+
+</div>
+</div>
 <a id="a4604fdeca1a82a26e69687d15821bb10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4604fdeca1a82a26e69687d15821bb10">&#9670;&nbsp;</a></span>S3270()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4604fdeca1a82a26e69687d15821bb10">&#9670;&nbsp;</a></span>S3270() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,24 +289,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructs a new <a class="el" href="classorg_1_1h3270_1_1host_1_1S3270.html">S3270</a> object. The s3270 subprocess (which does the communication with the host) is immediately started and connected to the target host. If this fails, the constructor will throw an appropriate exception.</p>
+<p>Old constructor without host charset. Charset is defaulted to "bracket", which is also the default in s3270 terminal emulation.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">hostname</td><td>the name of the host to connect to </td></tr>
-    <tr><td class="paramname">configuration</td><td>the h3270 configuration, derived from h3270-config.xml </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classorg_1_1h3270_1_1host_1_1UnknownHostException.html">org.h3270.host.UnknownHostException</a></td><td>if <code>hostname</code> cannot be resolved </td></tr>
-    <tr><td class="paramname"><a class="el" href="classorg_1_1h3270_1_1host_1_1HostUnreachableException.html">org.h3270.host.HostUnreachableException</a></td><td>if the host cannot be reached </td></tr>
-    <tr><td class="paramname"><a class="el" href="classorg_1_1h3270_1_1host_1_1S3270Exception.html">org.h3270.host.S3270Exception</a></td><td>for any other error not matched by the above </td></tr>
+    <tr><td class="paramname">s3270Path</td><td></td></tr>
+    <tr><td class="paramname">hostname</td><td></td></tr>
+    <tr><td class="paramname">port</td><td></td></tr>
+    <tr><td class="paramname">type</td><td></td></tr>
+    <tr><td class="paramname">mode</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00119">119</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00163">163</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>
@@ -256,7 +331,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
 </div><div class="memdoc">
 <p>Perform an s3270 command. All communication with s3270 should go via this method. </p>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00206">206</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00226">226</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>
@@ -290,7 +365,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00540">540</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00560">560</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>
@@ -318,7 +393,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
 </div><div class="memdoc">
 <p>Writes all changed fields back to s3270. </p>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00420">420</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00440">440</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>
@@ -346,7 +421,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
 </div><div class="memdoc">
 <p>Updates the screen object with s3270's buffer data. </p>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00397">397</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00417">417</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>

@@ -1,7 +1,7 @@
 var classnet_1_1sf_1_1f3270_1_1Terminal =
 [
-    [ "Terminal", "classnet_1_1sf_1_1f3270_1_1Terminal.html#a97086a43851e50d2f1d4ba59ceb6e8f2", null ],
-    [ "Terminal", "classnet_1_1sf_1_1f3270_1_1Terminal.html#ac1c6a6689f95aa10e7e4d4cd27b03624", null ],
+    [ "Terminal", "classnet_1_1sf_1_1f3270_1_1Terminal.html#a607e2c24aeef1c52427c3ce2c18aa955", null ],
+    [ "Terminal", "classnet_1_1sf_1_1f3270_1_1Terminal.html#a0b5f25c183ac2ed23ba324890ca02699", null ],
     [ "addObserver", "classnet_1_1sf_1_1f3270_1_1Terminal.html#acb7ebff2b8f09e19e1946e46e1d26ab4", null ],
     [ "clear", "classnet_1_1sf_1_1f3270_1_1Terminal.html#a4d9be086fb171cd0110f33fa1e82db03", null ],
     [ "clearScreen", "classnet_1_1sf_1_1f3270_1_1Terminal.html#a29c564f16c8aa2a375b900117615aab5", null ],

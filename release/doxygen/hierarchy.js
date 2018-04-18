@@ -4,6 +4,7 @@ var hierarchy =
       [ "org.h3270.host.InputField", "classorg_1_1h3270_1_1host_1_1InputField.html", null ]
     ] ],
     [ "net.sf.f3270.FieldIdentifier", "classnet_1_1sf_1_1f3270_1_1FieldIdentifier.html", null ],
+    [ "net.sf.f3270.HostCharset", "enumnet_1_1sf_1_1f3270_1_1HostCharset.html", null ],
     [ "net.sf.f3270.ide.Ide", "classnet_1_1sf_1_1f3270_1_1ide_1_1Ide.html", null ],
     [ "net.sf.f3270.MatchMode", "enumnet_1_1sf_1_1f3270_1_1MatchMode.html", null ],
     [ "net.sf.f3270.Parameter", "classnet_1_1sf_1_1f3270_1_1Parameter.html", null ],

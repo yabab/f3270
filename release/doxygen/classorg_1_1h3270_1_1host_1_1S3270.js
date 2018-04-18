@@ -2,6 +2,7 @@ var classorg_1_1h3270_1_1host_1_1S3270 =
 [
     [ "TerminalMode", "enumorg_1_1h3270_1_1host_1_1S3270_1_1TerminalMode.html", "enumorg_1_1h3270_1_1host_1_1S3270_1_1TerminalMode" ],
     [ "TerminalType", "enumorg_1_1h3270_1_1host_1_1S3270_1_1TerminalType.html", "enumorg_1_1h3270_1_1host_1_1S3270_1_1TerminalType" ],
+    [ "S3270", "classorg_1_1h3270_1_1host_1_1S3270.html#a113dea769c99ce403946ab4463aee34d", null ],
     [ "S3270", "classorg_1_1h3270_1_1host_1_1S3270.html#a4604fdeca1a82a26e69687d15821bb10", null ],
     [ "attn", "classorg_1_1h3270_1_1host_1_1S3270.html#ae5250a345c0c16caa4d71eefd044c6c1", null ],
     [ "clear", "classorg_1_1h3270_1_1host_1_1S3270.html#a146958eb5221c86983b36c1af8fc6251", null ],

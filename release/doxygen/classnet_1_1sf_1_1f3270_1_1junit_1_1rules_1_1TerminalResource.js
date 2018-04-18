@@ -8,6 +8,7 @@ var classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource =
     [ "getDriver", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource.html#a7eae3710553eb906437e10bbbfd78155", null ],
     [ "pathToClient", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource.html#a51517ae2260e88ca3aafe068e48a7ac4", null ],
     [ "setDebug", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource.html#acfb2e5a523871794d2e6616674c3b40d", null ],
+    [ "setHostCharset", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource.html#a411c0e92d7c80e279edba96ddb2cc531", null ],
     [ "showTerminalWindow", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource.html#a47d71f6a471e09d279b90a4703b877bc", null ],
     [ "withHost", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource.html#ad525c83ec40d35a3e6362100931b2501", null ],
     [ "withMode", "classnet_1_1sf_1_1f3270_1_1junit_1_1rules_1_1TerminalResource.html#a12bf27f21bbcc9c94aa19b765d0ac7c3", null ],
