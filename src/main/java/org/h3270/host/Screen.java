@@ -27,8 +27,6 @@ import java.util.List;
  * Represents the contents of a 3270 screen. A screen is made up of characters arranged in rows and columns. Some
  * portions of the screen are fields that allow user input. These are represented by objects of their own (see class
  * 
- * @link{Field ).
- * 
  * @author Andre Spiegel spiegel@gnu.org
  * @version $Id: Screen.java,v 1.7 2006/10/25 11:20:09 spiegel Exp $
  */

@@ -108,10 +108,15 @@ public class S3270 {
      * Constructs a new S3270 object. The s3270 subprocess (which does the communication with the host) is immediately
      * started and connected to the target host. If this fails, the constructor will throw an appropriate exception.
      * 
-     * @param hostname
+     * @param s3270Path
      *            the name of the host to connect to
-     * @param configuration
+     * @param hostname
      *            the h3270 configuration, derived from h3270-config.xml
+     * @param port
+     * @param type
+     * @param hostCharset
+     * @param mode
+     * 
      * @throws org.h3270.host.UnknownHostException
      *             if <code>hostname</code> cannot be resolved
      * @throws org.h3270.host.HostUnreachableException
@@ -555,7 +560,7 @@ public class S3270 {
 
     /**
      * Set debug level programmatically, e.g. via TerminalResource
-     * @param enable
+     * @param isDebug
      */
     public void setDebug(boolean isDebug) {
     	if (isDebug) {

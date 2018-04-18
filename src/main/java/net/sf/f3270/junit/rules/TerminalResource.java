@@ -99,7 +99,7 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * FluentInterface: Define TerminalMode
 	 * 
-	 * @param aCodePage
+	 * @param aMode
 	 * @return
 	 */
 	public TerminalResource withMode(TerminalMode aMode) {
@@ -121,7 +121,7 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * FluentInterface: Hold connection after TestCase.
 	 * 
-	 * @param aDecision
+	 * @param isVisible
 	 * @return
 	 */
 	public TerminalResource showTerminalWindow(boolean isVisible) {

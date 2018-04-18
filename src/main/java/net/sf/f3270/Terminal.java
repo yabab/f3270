@@ -198,7 +198,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#write (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#write (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public void write(final String label, final String value) {
@@ -206,7 +206,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#write (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#write (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public void write(final String label, final String value, final MatchMode matchMode) {
@@ -214,7 +214,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#write (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#write (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public void write(final String label, final String value, final int skip) {
@@ -222,7 +222,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#write (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#write (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public void write(final String label, final String value, final int skip, final MatchMode matchMode) {
@@ -230,7 +230,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#write (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#write (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public void write(String label, String value, int skip, int matchNumber, MatchMode matchMode) {
@@ -260,7 +260,7 @@ public class Terminal {
     }
     
     /**
-     * @deprecated Use {@link @link Terminal#read (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#read (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public String read(final String label) {
@@ -268,7 +268,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#read (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#read (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public String read(final String label, final int skip) {
@@ -276,7 +276,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#read (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#read (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public String read(final String label, final MatchMode matchMode) {
@@ -284,7 +284,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#read (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#read (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public String read(final String label, final int skip, final MatchMode matchMode) {
@@ -292,7 +292,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#read (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#read (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public String read(final String label, final int skip, final int matchNumber, final MatchMode matchMode) {
@@ -342,7 +342,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#getField (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#getField (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public Field fieldAfterLabel(String label) {
@@ -350,7 +350,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#getField (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#getField (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public Field fieldAfterLabel(String label, int skip) {
@@ -358,7 +358,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#getField (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#getField (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public Field fieldAfterLabel(String label, int skip, int matchNumber) {
@@ -366,7 +366,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Use {@link @link Terminal#getField (FieldIdentifier)} instead
+     * @deprecated Use {@link Terminal#getField (FieldIdentifier)} instead
      */
     // TODO : Inline into Terminal#getField (FieldIdentifier) (deprecated on 2010-04-15)
     public Field fieldAfterLabel(final String label, final int skip, final int matchNumber, final MatchMode matchMode) {
@@ -380,7 +380,7 @@ public class Terminal {
     }
 
     /**
-     * @deprecated Should not be using field indexes use other methods on {@link @link Terminal} to achieve desired behaviour
+     * @deprecated Should not be using field indexes use other methods on {@link Terminal} to achieve desired behaviour
      */
     // TODO : delete method (deprecated on 2010-04-15)
     public int getFieldIndex(final String label, final int matchNumber, final MatchMode matchMode) {
