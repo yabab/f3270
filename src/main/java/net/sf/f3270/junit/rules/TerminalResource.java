@@ -5,8 +5,7 @@ import org.h3270.host.S3270.TerminalMode;
 import org.h3270.host.S3270.TerminalType;
 import org.junit.rules.ExternalResource;
 
-import com.github.vebqa.HostCharset;
-
+import net.sf.f3270.HostCharset;
 import net.sf.f3270.Terminal;
 
 /**

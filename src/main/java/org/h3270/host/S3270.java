@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import com.github.vebqa.HostCharset;
+import net.sf.f3270.HostCharset;
 
 /**
  * A Terminal that connects to the host via s3270.

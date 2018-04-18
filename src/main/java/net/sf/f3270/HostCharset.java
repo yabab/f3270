@@ -1,4 +1,4 @@
-package com.github.vebqa;
+package net.sf.f3270;
 
 /**
  * Defines the host code page, used by the terminal emulator.

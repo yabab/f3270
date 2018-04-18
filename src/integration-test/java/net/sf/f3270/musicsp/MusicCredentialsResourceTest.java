@@ -9,9 +9,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-import com.github.vebqa.HostCharset;
-
 import net.sf.f3270.FieldIdentifier;
+import net.sf.f3270.HostCharset;
 import net.sf.f3270.IntegrationTests;
 import net.sf.f3270.MatchMode;
 import net.sf.f3270.junit.rules.TerminalResource;

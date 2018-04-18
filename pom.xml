@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.vebqa</groupId>
 	<artifactId>f3270</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 
 	<name>f3270</name>
 	<description>Java framework for testing mainframe (TN3270) applications </description>
@@ -19,8 +19,8 @@
 
 	<licenses>
 		<license>
-			<name>GNU GPL v2</name>
-			<url>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</url>
+			<name>GNU GPL</name>
+			<url>http://www.gnu.org/licenses/gpl.txt</url>
 		</license>
 	</licenses>
 
@@ -34,8 +34,9 @@
 	<properties>
 		<site.path>release</site.path>
 		<skip.unit.tests>false</skip.unit.tests>
+		<!-- overwrite in settings by profile: integration-test -->
 		<skip.integration.tests>true</skip.integration.tests>
-		<!-- overwrite in settings by profile -->
+		<!-- overwrite in settings by profile: githubio -->
 		<skip.publish.githubio>true</skip.publish.githubio>
 	</properties>
 
@@ -52,30 +53,6 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.2</version>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site/downloads</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/target</directory>
-									<includes>
-										<include>**/*.jar</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 			<!-- static code analysis -->
 			<plugin>
@@ -141,7 +118,6 @@
 								<host.app.user>${host.app.user}</host.app.user>
 								<host.app.password>${host.app.password}</host.app.password>
 							</systemPropertyVariables>
-
 						</configuration>
 					</execution>
 				</executions>
@@ -180,99 +156,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	<!-- reporting -->
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>com.soebes.maven.plugins</groupId>
-				<artifactId>doxygen-maven-plugin</artifactId>
-				<version>1.1.0</version>
-				<configuration>
-					<workingDirectory>${basedir}</workingDirectory>
-					<executable>${doxygen.executable.path}</executable>
-					<haveDot>true</haveDot>
-					<dotCleanup>true</dotCleanup>
-					<extractAll>true</extractAll>
-					<umlLook>true</umlLook>
-					<callGraph>true</callGraph>
-					<callerGraph>true</callerGraph>
-					<dotPath>${dot.executable.path}</dotPath>
-					<quiet>false</quiet>
-					<filePatterns>*.java</filePatterns>
-					<configurationFile>./doxygen.config</configurationFile>
-					<input>${doxygenInput}</input>
-					<recursive>true</recursive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-changes-plugin</artifactId>
-				<version>2.12.1</version>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>changes-report</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.0.2</version>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>analyze-report</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.9.0</version>
-				<configuration>
-					<skipEmptyReport>false</skipEmptyReport>
-					<includeTests>true</includeTests>
-				</configuration>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>cpd</report>
-							<report>pmd</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.9</version>
-				<configuration>
-					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
-				</configuration>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>index</report>
-							<report>summary</report>
-							<report>modules</report>
-							<report>license</report>
-							<report>project-team</report>
-							<report>scm</report>
-							<report>issue-tracking</report>
-							<report>dependency-management</report>
-							<report>dependencies</report>
-							<report>dependency-convergence</report>
-							<report>plugin-management</report>
-							<report>plugins</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-		</plugins>
-	</reporting>
 
 	<dependencies>
 		<dependency>

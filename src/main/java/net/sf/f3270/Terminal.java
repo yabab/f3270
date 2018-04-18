@@ -13,8 +13,6 @@ import org.h3270.host.S3270.TerminalMode;
 import org.h3270.host.S3270.TerminalType;
 import org.h3270.render.TextRenderer;
 
-import com.github.vebqa.HostCharset;
-
 public class Terminal {
     private static final int SCREEN_WIDTH_IN_CHARS = 80;
 
