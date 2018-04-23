@@ -5,12 +5,15 @@
 		<title>f3270</title>
 	</properties>
 	<body>
-		<release version="1.1.1" date="2018-04-18" description="support character sets">
+		<release version="1.2.0" date="2018-04-20" description="support character sets">
 			<action dev="kdoerges" type="update">
 				Refactor vebtal api to make engine more independent.
 			</action>
 			<action dev="kdoerges" type="add">
-				Initialize emulator with character set. Codepage support in terminal api.
+				Initialize emulator with character set. Codepage support in terminal api. Use HostCharset.BRACKET as default.
+			</action>
+			<action dev="kdoerges" type="update">
+				Update build process for central artefact upload.
 			</action>
 		</release>
 		<release version="1.1.0" date="2018-03-20" description="initial release with maven build">
