@@ -2,8 +2,8 @@
 
 f3270 is a simple, easy-to-use Java framework for automating mainframe functional tests. It consists of an API to deal with fields in screens and a terminal GUI for debugging.
 
-!https://raw.github.com/rufiao/f3270/master/doc/musicsp_startscreen.png!
+!https://raw.github.com/vebqa/f3270/master/doc/musicsp_startscreen.png!
 
-!https://raw.github.com/rufiao/f3270/master/doc/musicsp_main.png!
+!https://raw.github.com/vebqa/f3270/master/doc/musicsp_main.png!
 
 Have a look into our wiki how to start testing with an example using MUSIC/SP as test object.
