@@ -220,8 +220,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
 <p>Constructs a new <a class="el" href="classorg_1_1h3270_1_1host_1_1S3270.html">S3270</a> object. The s3270 subprocess (which does the communication with the host) is immediately started and connected to the target host. If this fails, the constructor will throw an appropriate exception.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">hostname</td><td>the name of the host to connect to </td></tr>
-    <tr><td class="paramname">configuration</td><td>the h3270 configuration, derived from h3270-config.xml </td></tr>
+    <tr><td class="paramname">s3270Path</td><td>the name of the host to connect to </td></tr>
+    <tr><td class="paramname">hostname</td><td>the h3270 configuration, derived from h3270-config.xml </td></tr>
+    <tr><td class="paramname">port</td><td></td></tr>
+    <tr><td class="paramname">type</td><td></td></tr>
+    <tr><td class="paramname">hostCharset</td><td></td></tr>
+    <tr><td class="paramname">mode</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -234,7 +238,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00122">122</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00127">127</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>
@@ -301,7 +305,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00163">163</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00168">168</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>
@@ -331,7 +335,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
 </div><div class="memdoc">
 <p>Perform an s3270 command. All communication with s3270 should go via this method. </p>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00226">226</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00231">231</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>
@@ -360,12 +364,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
 </div><div class="memdoc">
 <p>Set debug level programmatically, e.g. via TerminalResource </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">enable</td><td></td></tr>
+    <tr><td class="paramname">isDebug</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00560">560</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00565">565</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>
@@ -393,7 +397,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
 </div><div class="memdoc">
 <p>Writes all changed fields back to s3270. </p>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00440">440</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00445">445</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>
@@ -421,7 +425,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>doKey</b> (final Stri
 </div><div class="memdoc">
 <p>Updates the screen object with s3270's buffer data. </p>
 
-<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00417">417</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="S3270_8java_source.html#l00422">422</a> of file <a class="el" href="S3270_8java_source.html">S3270.java</a>.</p>
 
 </div>
 </div>
