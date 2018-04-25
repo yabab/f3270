@@ -3,8 +3,6 @@ package net.sf.f3270.musicsp;
 import static org.junit.Assert.assertTrue;
 
 import org.apache.log4j.Logger;
-import org.h3270.host.S3270.TerminalMode;
-import org.h3270.host.S3270.TerminalType;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -12,6 +10,8 @@ import org.junit.experimental.categories.Category;
 import net.sf.f3270.FieldIdentifier;
 import net.sf.f3270.IntegrationTests;
 import net.sf.f3270.MatchMode;
+import net.sf.f3270.TerminalModel;
+import net.sf.f3270.TerminalType;
 import net.sf.f3270.junit.rules.TerminalResource;
 import net.sf.f3270.junit.rules.UserCredentialsResource;
 
@@ -31,7 +31,7 @@ public class MusicTest {
 	 */
 	@Rule
 	public final TerminalResource terminal = new TerminalResource().withHost("127.0.0.1").withPort(23)
-			.withMode(TerminalMode.MODE_80_24).withType(TerminalType.TYPE_3279).showTerminalWindow(true).setDebug(true);
+			.withMode(TerminalModel.MODE_80_24).withType(TerminalType.TYPE_3279).showTerminalWindow(true).setDebug(true);
 
 	/**
 	 * Use VM Args to set up user

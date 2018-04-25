@@ -38,6 +38,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import net.sf.f3270.HostCharset;
+import net.sf.f3270.TerminalModel;
+import net.sf.f3270.TerminalType;
 
 /**
  * A Terminal that connects to the host via s3270.
@@ -47,39 +49,13 @@ import net.sf.f3270.HostCharset;
  */
 public class S3270 {
 
-    public enum TerminalMode {
-        MODE_80_24(2), MODE_80_32(3), MODE_80_43(4), MODE_132_27(5);
-        private int mode;
-
-        private TerminalMode(int mode) {
-            this.mode = mode;
-        }
-
-        public int getMode() {
-            return mode;
-        }
-    }
-
-    public enum TerminalType {
-        TYPE_3278("3278"), TYPE_3279("3279");
-        private String type;
-
-        private TerminalType(String type) {
-            this.type = type;
-        }
-
-        public String getType() {
-            return type;
-        }
-    }
-
     private static final Logger logger = Logger.getLogger(S3270.class);
 
     private final String s3270Path;
     private String hostname;
     private final int port;
     private final TerminalType type;
-    private final TerminalMode mode;
+    private final TerminalModel mode;
     private final HostCharset charset;
 
     private S3270Screen screen = null;
@@ -125,7 +101,7 @@ public class S3270 {
      *             for any other error not matched by the above
      */
     public S3270(final String s3270Path, final String hostname, final int port, final TerminalType type, final HostCharset hostCharset,
-            final TerminalMode mode) {
+            final TerminalModel mode) {
 
         this.s3270Path = s3270Path;
         this.hostname = hostname;
@@ -137,8 +113,8 @@ public class S3270 {
 
         checkS3270PathValid(s3270Path);
 
-        final String commandLine = String.format("%s -model %s-%d %s:%d -charset %s", s3270Path, type.getType(), mode.getMode(),
-                hostname, port, hostCharset.getCharsetName());
+        final String commandLine = String.format("%s -model %s-%d %s:%d -charset %s", this.s3270Path, this.type.getType(), this.mode.getMode(),
+                this.hostname, this.port, this.charset.getCharsetName());
         try {
             logger.info("starting " + commandLine);
             s3270 = Runtime.getRuntime().exec(commandLine);
@@ -166,7 +142,7 @@ public class S3270 {
      * @param mode
      */
     public S3270(final String s3270Path, final String hostname, final int port, final TerminalType type,
-            final TerminalMode mode) {
+            final TerminalModel mode) {
     	this(s3270Path, hostname, port, type, HostCharset.BRACKET, mode);
     }
 
@@ -200,7 +176,7 @@ public class S3270 {
         return type;
     }
 
-    public TerminalMode getMode() {
+    public TerminalModel getMode() {
         return mode;
     }
 
@@ -528,7 +504,6 @@ public class S3270 {
 
     private static final Pattern FUNCTION_KEY_PATTERN = Pattern.compile("p(f|a)([0-9]{1,2})");
 
-    @SuppressWarnings("unchecked")
     public void doKey(final String key) {
         assertConnected();
         final Matcher m = FUNCTION_KEY_PATTERN.matcher(key);
@@ -544,7 +519,7 @@ public class S3270 {
             this.enter();
         } else { // other key: find a parameterless method of the same name
             try {
-                final Class c = this.getClass();
+                final Class<? extends S3270> c = this.getClass();
                 final Method method = c.getMethod(key, new Class[] {});
                 method.invoke(this, new Object[] {});
             } catch (final NoSuchMethodException ex) {

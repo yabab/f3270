@@ -3,19 +3,19 @@ package net.sf.f3270.ipaustralia;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.h3270.host.S3270.TerminalMode;
-import org.h3270.host.S3270.TerminalType;
 import org.junit.Rule;
 import org.junit.Test;
 
 import net.sf.f3270.FieldIdentifier;
+import net.sf.f3270.TerminalModel;
+import net.sf.f3270.TerminalType;
 import net.sf.f3270.junit.rules.TerminalResource;
 
 public class IpAustraliaTest {
 
 	@Rule
 	public final TerminalResource terminal = new TerminalResource().withHost("pericles.ipaustralia.gov.au").withPort(23)
-			.withMode(TerminalMode.MODE_80_24).withType(TerminalType.TYPE_3279).showTerminalWindow(true).setDebug(true);
+			.withMode(TerminalModel.MODE_80_24).withType(TerminalType.TYPE_3279).showTerminalWindow(true).setDebug(true);
 	
     @Test
     public void testIpAustralia() {

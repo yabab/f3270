@@ -9,8 +9,6 @@ import org.h3270.host.Field;
 import org.h3270.host.InputField;
 import org.h3270.host.S3270;
 import org.h3270.host.Screen;
-import org.h3270.host.S3270.TerminalMode;
-import org.h3270.host.S3270.TerminalType;
 import org.h3270.render.TextRenderer;
 
 public class Terminal {
@@ -24,7 +22,7 @@ public class Terminal {
     private final String hostname;
     private final int port;
     private final TerminalType type;
-    private final TerminalMode mode;
+    private final TerminalModel mode;
     private final boolean debug;
     private final HostCharset charset;
 	private final boolean showTerminalWindow;
@@ -41,7 +39,7 @@ public class Terminal {
      * @param showTerminalWindow
      */
     public Terminal(final String s3270Path, final String hostname, final int port, final TerminalType type,
-            final TerminalMode mode, final HostCharset charset, final boolean showTerminalWindow) {
+            final TerminalModel mode, final HostCharset charset, final boolean showTerminalWindow) {
         this.s3270Path = s3270Path;
         this.hostname = hostname;
         this.port = port;
@@ -64,7 +62,7 @@ public class Terminal {
      * @param isDebug
      */
     public Terminal(final String s3270Path, final String hostname, final int port, final TerminalType type,
-            final TerminalMode mode, final HostCharset charset, final boolean showTerminalWindow, final boolean isDebug) {
+            final TerminalModel mode, final HostCharset charset, final boolean showTerminalWindow, final boolean isDebug) {
         this.s3270Path = s3270Path;
         this.hostname = hostname;
         this.port = port;

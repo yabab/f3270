@@ -1,12 +1,12 @@
 package net.sf.f3270.junit.rules;
 
 import org.apache.log4j.Logger;
-import org.h3270.host.S3270.TerminalMode;
-import org.h3270.host.S3270.TerminalType;
 import org.junit.rules.ExternalResource;
 
 import net.sf.f3270.HostCharset;
 import net.sf.f3270.Terminal;
+import net.sf.f3270.TerminalModel;
+import net.sf.f3270.TerminalType;
 
 /**
  * Create a TerminalResource for JUnit Access.
@@ -44,7 +44,7 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * terminal mode: screen-size, use @see TerminalMode
 	 */
-	private TerminalMode mode;
+	private TerminalModel mode;
 
 	/**
 	 * terminal type: monochrome or color, @see TerminalType
@@ -102,7 +102,7 @@ public class TerminalResource extends ExternalResource {
 	 * @param aMode
 	 * @return
 	 */
-	public TerminalResource withMode(TerminalMode aMode) {
+	public TerminalResource withMode(TerminalModel aMode) {
 		this.mode = aMode;
 		return this;
 	}
