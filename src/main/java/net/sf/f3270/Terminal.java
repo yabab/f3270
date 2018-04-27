@@ -115,6 +115,13 @@ public class Terminal {
         }
     }
 
+    public boolean isConnected() {
+        if (s3270 == null) {
+            return false;
+        }
+        return s3270.isConnected();
+    }
+    
     private void commandIssued(String command, String returned, Parameter... parameters) {
         for (TerminalObserver observer : observers) {
             observer.commandIssued(command, returned, parameters);

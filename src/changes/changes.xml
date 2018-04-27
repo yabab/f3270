@@ -6,6 +6,9 @@
 	</properties>
 	<body>
 		<release version="1.3.0" date="2018-05-25" description="refactoring">
+			<action dev="kdoerges" type="add">
+				added boolean driver.isConnected() method in driver api
+			</action>
 			<action dev="kdoerges" type="update">
 				Refactor TerminalType and TerminalMode to their own enumerator.
 			</action>
