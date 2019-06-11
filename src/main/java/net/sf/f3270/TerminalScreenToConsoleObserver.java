@@ -26,7 +26,7 @@ public class TerminalScreenToConsoleObserver extends TerminalObserver {
         super.commandIssued(command, returned, parameters);
         String output = MessageFormat.format("{0}({1})", command, join(", ", parameters));
         if (returned != null) {
-            output += ("=" + returned);
+            output += "=" + returned;
         }
         System.out.println(output);
         delayedPrintScreen();

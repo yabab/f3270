@@ -41,17 +41,16 @@ public class HostUnreachableException extends S3270Exception {
     }
 
     /**
-     * Returns the name of the host that could not be reached.
+     * @return the name of the host that could not be reached.
      */
     public String getHost() {
         return host;
     }
 
     /**
-     * Returns the reason why the host could not be reached, as reported by s3270.
+     * @return the reason why the host could not be reached, as reported by s3270.
      */
     public String getReason() {
         return reason;
     }
-
 }

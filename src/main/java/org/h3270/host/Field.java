@@ -109,6 +109,8 @@ public class Field {
     /**
      * Returns the x coordinate (column) at which this Field begins. Column numbers start at zero. The number returned
      * is the position of the Field's first character, not of the control character that opens the Field.
+     *
+     * @return return the x coordinate
      */
     public int getStartX() {
         return startx;
@@ -117,6 +119,8 @@ public class Field {
     /**
      * Returns the y coordinate (row) in which this Field begins. Row numbers start at zero, increasing downward from
      * the top.
+     * 
+     * @return the y coordinate
      */
     public int getStartY() {
         return starty;
@@ -125,6 +129,8 @@ public class Field {
     /**
      * Returns the x coordinate (column) at which this Field ends. Column numbers start at zero. The number returned is
      * the position of the Field's last character, not of the control character that terminates the Field.
+     *
+     * @return x coordinate
      */
     public int getEndX() {
         return endx;
@@ -133,6 +139,8 @@ public class Field {
     /**
      * Returns the y coordinate (row) in which this Field ends. Row numbers start at zero, increasing downward from the
      * top.
+     * 
+     * @return y coordinate
      */
     public int getEndY() {
         return endy;
@@ -143,6 +151,9 @@ public class Field {
      * the Field.
      * 
      * @deprecated this method will disappear soon
+     * 
+     * @return with
+     * 
      */
     public int getWidth() {
         return endx - startx + 1;
@@ -152,6 +163,8 @@ public class Field {
      * Returns the height of this Field, in lines. If the control characters at the start or the end of this Field are
      * at the end or the start of the preceding or next line, respectively, then those lines are not incluced in the
      * height count -- only the actual text of the Field counts.
+     *
+     * @return height
      */
     public int getHeight() {
         return endy - starty + 1;
@@ -159,6 +172,8 @@ public class Field {
 
     /**
      * Returns the Screen of which this Field is a part.
+     * 
+     * @return screen
      */
     public Screen getScreen() {
         return screen;
@@ -168,6 +183,8 @@ public class Field {
      * Returns the current value of this Field. This does not include the control character that starts the field, and
      * it does not include leading or trailing newlines. If this Field is a multi-line field, the individual lines are
      * separated by newlines.
+     * 
+     * @return current value
      */
     public String getValue() {
         if (value == null) {
@@ -183,8 +200,10 @@ public class Field {
     /**
      * Returns one of the lines of a potentially multi-line Field.
      * 
+     * @param value value
      * @param lineNumber
      *            the number of the line to retrieve, starting at zero
+     * @return result line         
      */
     public static String getValue(final String value, final int lineNumber) {
         final StringTokenizer st = new StringTokenizer(value, "\n");
@@ -205,6 +224,8 @@ public class Field {
      * opening field attribute, and adds newline characters at the beginning and the end as needed. Calling this method
      * for each Field of a Screen, and concatenating the results, creates a full printable, textual representation of
      * the screen.
+     * 
+     * @return text
      */
     public String getText() {
         final StringBuffer result = new StringBuffer();
@@ -240,6 +261,8 @@ public class Field {
 
     /**
      * Returns true if this field has a 3270 extended color.
+     * 
+     * @return flag
      */
     public boolean hasExtendedColor() {
         return extendedColor != ATTR_COL_DEFAULT;
@@ -247,6 +270,8 @@ public class Field {
 
     /**
      * Returns true if this field has 3270 extended highlighting.
+     * 
+     * @return flag
      */
     public boolean hasExtendedHighlight() {
         return extendedHighlight != ATTR_EH_DEFAULT;
@@ -263,6 +288,8 @@ public class Field {
     /**
      * If this Field has an extended color, returns the index of that color (0xf1 through 0xf7). If this Field does not
      * have an extended color assigned, returns zero.
+     * 
+     * @return colour
      */
     public int getExtendedColor() {
         return extendedColor;
@@ -271,6 +298,8 @@ public class Field {
     /**
      * If this field has extended highlighting, returns the index of that highlighting scheme. If this Field does have
      * extended highlighting, zero is returned.
+     * 
+     * @return index
      */
     public int getExtendedHighlight() {
         return extendedHighlight;

@@ -77,8 +77,8 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * FluentInterface: Define host
 	 * 
-	 * @param aHost
-	 * @return
+	 * @param aHost Host to connect with
+	 * @return the terminal resource
 	 */
 	public TerminalResource withHost(String aHost) {
 		this.host = aHost;
@@ -88,8 +88,8 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * FluentInterface: Define port
 	 * 
-	 * @param aPort
-	 * @return
+	 * @param aPort a port to use
+	 * @return the terminal resource
 	 */
 	public TerminalResource withPort(int aPort) {
 		this.port = aPort;
@@ -99,8 +99,8 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * FluentInterface: Define TerminalMode
 	 * 
-	 * @param aMode
-	 * @return
+	 * @param aMode terminal mode
+	 * @return the terminal resource
 	 */
 	public TerminalResource withMode(TerminalModel aMode) {
 		this.mode = aMode;
@@ -110,8 +110,8 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * FluentInterface: Define Type
 	 * 
-	 * @param aType
-	 * @return
+	 * @param aType terminal type
+	 * @return the terminal resource
 	 */
 	public TerminalResource withType(TerminalType aType) {
 		this.type = aType;
@@ -121,8 +121,8 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * FluentInterface: Hold connection after TestCase.
 	 * 
-	 * @param isVisible
-	 * @return
+	 * @param isVisible flag to show terminal window
+	 * @return the terminal resource
 	 */
 	public TerminalResource showTerminalWindow(boolean isVisible) {
 		this.showTerminal = isVisible;
@@ -132,8 +132,8 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * FluentInterface: control debug output
 	 * 
-	 * @param isDebug
-	 * @return
+	 * @param isDebug flag to activate debug mode
+	 * @return the terminal resource
 	 */
 	public TerminalResource setDebug(boolean isDebug) {
 		this.debug = isDebug;
@@ -147,8 +147,8 @@ public class TerminalResource extends ExternalResource {
 	
 	/**
 	 * FluentInterface: set path to local terminal emulator, including programm name and extension
-	 * @param aPath
-	 * @return
+	 * @param aPath path to executable
+	 * @return the terminal resource
 	 */
 	public TerminalResource pathToClient(String aPath) {
 		this.pathToClient = aPath;
@@ -166,7 +166,7 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * Connect to host
 	 * 
-	 * @throws Throwable
+	 * @throws Throwable if connect is not possible
 	 */
 	public void connect() throws Throwable {
 		// pathToClient can be overwritten by vm args
@@ -195,7 +195,7 @@ public class TerminalResource extends ExternalResource {
 	/**
 	 * Get driver instance.
 	 * 
-	 * @return
+	 * @return a terminal
 	 */
 	public Terminal getDriver() {
 		return this.driver;

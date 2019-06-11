@@ -23,6 +23,9 @@ public class MusicCredentialsResourceTest {
 	 */
 	private static final Logger logger = Logger.getLogger(MusicCredentialsResourceTest.class);
 
+	private static final String SUTHOST = "127.0.0.1"; 
+	private static final int SUTPORT = 23;
+	
 	/**
 	 * Setup TerminalResource
 	 * You can setup the path to the s3270 terminal by using:
@@ -31,7 +34,7 @@ public class MusicCredentialsResourceTest {
 	 * - -Dhost.client.path = <PathTo/s3270.exe>
 	 */
 	@Rule
-	public final TerminalResource terminal = new TerminalResource().withHost("127.0.0.1").withPort(23)
+	public final TerminalResource terminal = new TerminalResource().withHost(SUTHOST).withPort(SUTPORT)
 			.withMode(TerminalModel.MODE_80_24).withType(TerminalType.TYPE_3279).setHostCharset(HostCharset.BRACKET).showTerminalWindow(true).setDebug(true);
 
 	/**

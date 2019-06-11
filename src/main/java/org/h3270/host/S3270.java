@@ -84,14 +84,12 @@ public class S3270 {
      * Constructs a new S3270 object. The s3270 subprocess (which does the communication with the host) is immediately
      * started and connected to the target host. If this fails, the constructor will throw an appropriate exception.
      * 
-     * @param s3270Path
-     *            the name of the host to connect to
-     * @param hostname
-     *            the h3270 configuration, derived from h3270-config.xml
-     * @param port
-     * @param type
-     * @param hostCharset
-     * @param mode
+     * @param s3270Path   path to executable
+     * @param hostname    host
+     * @param port        port
+     * @param type        emulation type
+     * @param hostCharset charset
+     * @param mode        mode
      * 
      * @throws org.h3270.host.UnknownHostException
      *             if <code>hostname</code> cannot be resolved
@@ -135,11 +133,11 @@ public class S3270 {
      * Old constructor without host charset. Charset is defaulted to "bracket", which
      * is also the default in s3270 terminal emulation.
      * 
-     * @param s3270Path
-     * @param hostname
-     * @param port
-     * @param type
-     * @param mode
+     * @param s3270Path path to executable
+     * @param hostname  hostname
+     * @param port      port
+     * @param type      emulation type
+     * @param mode      enulation mode
      */
     public S3270(final String s3270Path, final String hostname, final int port, final TerminalType type,
             final TerminalModel mode) {
@@ -203,6 +201,10 @@ public class S3270 {
 
     /**
      * Perform an s3270 command. All communication with s3270 should go via this method.
+     * 
+     * @param command terminal command
+     * 
+     * @return result from command eexecution
      */
     public Result doCommand(final String command) {
         assertConnected();
@@ -278,6 +280,7 @@ public class S3270 {
     // This message is hard-coded in s3270 as of version 3.3.5,
             // so we can rely on it not being localized.
             "Unknown host: (.*)");
+    
     private static final Pattern unreachablePattern = Pattern.compile(
     // This is the hard-coded part of the error message in s3270 version 3.3.5.
             "Connect to ([^,]+), port ([0-9]+): (.*)");
@@ -535,7 +538,8 @@ public class S3270 {
 
     /**
      * Set debug level programmatically, e.g. via TerminalResource
-     * @param isDebug
+     * 
+     * @param isDebug flag to activate debug mode
      */
     public void setDebug(boolean isDebug) {
     	if (isDebug) {

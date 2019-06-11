@@ -40,7 +40,7 @@ public class UnknownHostException extends S3270Exception {
     }
 
     /**
-     * Returns the name of the host that could not be resolved.
+     * @return the name of the host that could not be resolved.
      */
     public String getHost() {
         return host;

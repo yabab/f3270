@@ -78,8 +78,8 @@ public class FieldIdentifier {
 	 * Returns the field index of a label or -1 if the label was not found. Label
 	 * must match case sensitive.
 	 * 
-	 * @param fields
-	 * @return
+	 * @param fields list of fields
+	 * @return index
 	 */
 	public int getFieldIndexOfLabel(List<Field> fields) {
 		int matches = 0;

@@ -33,17 +33,22 @@ import java.util.List;
 public interface Screen {
 
     /**
-     * Returns the width (number of columns) of this screen.
+     * @return Returns the width (number of columns) of this screen.
+     * 
      */
     int getWidth();
 
     /**
-     * Returns the height (number of rows) of this screen.
+     * @return Returns the height (number of rows) of this screen.
+     * 
      */
     int getHeight();
 
     /**
-     * Returns the character at the given position. x and y start in the upper left hand corner, which is position
+     * @param x upper left x
+     * @param y upper left y
+     * 
+     * @return Returns the character at the given position. x and y start in the upper left hand corner, which is position
      * (0,0). Control characters are returned as blanks.
      */
     char charAt(int x, int y);
@@ -51,14 +56,11 @@ public interface Screen {
     /**
      * Returns the contents of a region on this screen.
      * 
-     * @param startx
-     *            x coordinate of the starting point (inclusive)
-     * @param starty
-     *            y coordinate of the starting point
-     * @param endx
-     *            x coordinate of the end point (inclusive)
-     * @param endy
-     *            y coordinate of the end point
+     * @param startx x coordinate of the starting point (inclusive)
+     * @param starty y coordinate of the starting point
+     * @param endx x coordinate of the end point (inclusive)
+     * @param endy y coordinate of the end point
+     * 
      * @return the region as a String, with line breaks (newline characters) inserted
      */
     String substring(int startx, int starty, int endx, int endy);
@@ -66,26 +68,24 @@ public interface Screen {
     /**
      * Returns a part of a row on this screen, as a string.
      * 
-     * @param startx
-     *            x coordinate of the starting point (inclusive)
-     * @param endx
-     *            x coordinate of the end point (inclusive)
-     * @param y
-     *            number of the row
+     * @param startx x coordinate of the starting point (inclusive)
+     * @param endx x coordinate of the end point (inclusive)
+     * @param y number of the row
+     * 
+     * @return part of row
      */
     String substring(int startx, int endx, int y);
 
     /**
      * Returns a single row of this screen.
      * 
-     * @param y
-     *            the row number
+     * @param y the row number
      * @return the row as a String, without a terminating newline
      */
     String substring(int y);
 
     /**
-     * Returns a list of all Fields on this screen. If there are no fields, this method returns an empty list.
+     * @return Returns a list of all Fields on this screen. If there are no fields, this method returns an empty list.
      */
     List<Field> getFields();
 
@@ -96,22 +96,35 @@ public interface Screen {
      * control characters themselves, this method always returns null.
      * 
      * x and y start in the upper left hand corner, which is position (0,0).
+     * 
+     * @param x upper left corner x
+     * @param y upper left corner y
+     * 
+     * @return an input field
      */
     InputField getInputFieldAt(int x, int y);
 
     /**
      * Returns true if there is an input field at position (x, y) on this screen. Fields do not include the control
      * characters that delimit them, see {@link #getInputFieldAt getFieldAt()}.
+     * 
+     * @param x x
+     * @param y y
+     * 
+     * @return flag if field is an input field
      */
     boolean isInputField(int x, int y);
 
     /**
      * Gets the InputField in which the cursor is currently, or null if the cursor is not in an InputField.
+     * 
+     * @return an input field or null if not in scope
      */
     InputField getFocusedField();
 
     /**
-     * Returns true if this Screen is formatted.
+     * @return Returns true if this Screen is formatted.
+     *
      */
     boolean isFormatted();
 

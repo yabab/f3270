@@ -72,6 +72,8 @@ public class InputField extends Field {
 
     /**
      * Sets the value of this Field. This method does not work for multiline fields; use setValue(int, String) instead.
+     * 
+     * @param newValue new value to set
      */
     public void setValue(final String newValue) {
         if (this.isMultiline()) {
@@ -129,6 +131,10 @@ public class InputField extends Field {
     /**
      * Returns a string that is the same as the argument, with leading and trailing ASCII NUL characters, blanks and
      * underscores removed.
+     * 
+     * @param value a value to trim
+     * 
+     * @return a value after trim
      */
     public static String trim(final String value) {
         final Matcher m = TRIM_PATTERN.matcher(value);

@@ -31,12 +31,13 @@ public class Terminal {
 
     /**
      * Old-style constructor whithout debug flag.
-     * @param s3270Path
-     * @param hostname
-     * @param port
-     * @param type
-     * @param mode
-     * @param showTerminalWindow
+     * @param s3270Path path  to termial executable
+     * @param hostname name of host
+     * @param port port
+     * @param type type of emulation
+     * @param mode mode of emulation
+     * @param charset charset for host
+     * @param showTerminalWindow flag if terminal should be shown
      */
     public Terminal(final String s3270Path, final String hostname, final int port, final TerminalType type,
             final TerminalModel mode, final HostCharset charset, final boolean showTerminalWindow) {
@@ -53,13 +54,14 @@ public class Terminal {
 
     /**
      * new constructor with debug flag
-     * @param s3270Path
-     * @param hostname
-     * @param port
-     * @param type
-     * @param mode
-     * @param showTerminalWindow
-     * @param isDebug
+     * @param s3270Path path to executable
+     * @param hostname hostname
+     * @param port port
+     * @param type emulation type
+     * @param mode emulation mode
+     * @param charset charset for host
+     * @param showTerminalWindow flag for terminal window
+     * @param isDebug flag if debug infos should be shown
      */
     public Terminal(final String s3270Path, final String hostname, final int port, final TerminalType type,
             final TerminalModel mode, final HostCharset charset, final boolean showTerminalWindow, final boolean isDebug) {
@@ -203,6 +205,9 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param value a value
+     * 
      * @deprecated Use {@link Terminal#write (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -211,6 +216,9 @@ public class Terminal {
     }
 
     /**
+     * @param label     a label
+     * @param value     a value
+     * @param matchMode match mode
      * @deprecated Use {@link Terminal#write (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -219,6 +227,10 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param value a value
+     * @param skip amount to skip
+     * 
      * @deprecated Use {@link Terminal#write (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -227,6 +239,11 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param value a value
+     * @param skip amount to skip
+     * @param matchMode match mode
+     * 
      * @deprecated Use {@link Terminal#write (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -235,6 +252,11 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param value a value
+     * @param skip amount to skip
+     * @param matchNumber match number
+     * @param matchMode match mode
      * @deprecated Use {@link Terminal#write (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -250,7 +272,7 @@ public class Terminal {
 
     /**
      * This writes just a value, without a specific field.
-     * @param value
+     * @param value a value
      */
     public void write(String value) {
     	assertConnected();
@@ -265,6 +287,9 @@ public class Terminal {
     }
     
     /**
+     * @param label a label
+     * @return some text
+     * 
      * @deprecated Use {@link Terminal#read (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -273,6 +298,10 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param skip amount to skip
+     * @return some text
+     * 
      * @deprecated Use {@link Terminal#read (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -281,6 +310,10 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param matchMode match mode
+     * @return some text
+     * 
      * @deprecated Use {@link Terminal#read (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -289,6 +322,11 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param skip amount to skip
+     * @param matchMode match mode
+     * @return some text
+     * 
      * @deprecated Use {@link Terminal#read (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -297,6 +335,12 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param skip amount to skip
+     * @param matchNumber match number
+     * @param matchMode match mode
+     * @return some text
+     * 
      * @deprecated Use {@link Terminal#read (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -347,6 +391,9 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @return a field
+     * 
      * @deprecated Use {@link Terminal#getField (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -355,6 +402,10 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param skip amount to skip
+     * @return a field
+     * 
      * @deprecated Use {@link Terminal#getField (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -363,6 +414,11 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param skip amouont to skip
+     * @param matchNumber match number
+     * @return a field
+     * 
      * @deprecated Use {@link Terminal#getField (FieldIdentifier)} instead
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -371,6 +427,12 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param skip amount to skip
+     * @param matchNumber match number
+     * @param matchMode match mode
+     * @return a field
+     * 
      * @deprecated Use {@link Terminal#getField (FieldIdentifier)} instead
      */
     // TODO : Inline into Terminal#getField (FieldIdentifier) (deprecated on 2010-04-15)
@@ -385,6 +447,11 @@ public class Terminal {
     }
 
     /**
+     * @param label a label
+     * @param matchNumber match number
+     * @param matchMode match mode
+     * @return field index
+     * 
      * @deprecated Should not be using field indexes use other methods on {@link Terminal} to achieve desired behaviour
      */
     // TODO : delete method (deprecated on 2010-04-15)
@@ -429,7 +496,7 @@ public class Terminal {
 
     /**
      * set debug level of 3270 emulator
-     * @param isDebug
+     * @param isDebug flag to activate debug mode
      */
     public void setTerminalDebug(boolean isDebug) {
     	s3270.setDebug(isDebug);
