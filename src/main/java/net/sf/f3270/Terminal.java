@@ -168,6 +168,14 @@ public class Terminal {
         commandIssued("enter", null);
     }
     
+    public void tab() {
+    	assertConnected();
+    	s3270.submitScreen();
+    	s3270.tab();
+    	updateScreen();
+    	commandIssued("tab", null);
+    }
+    
     public void pf(final int n) {
         assertConnected();
         s3270.submitScreen();
