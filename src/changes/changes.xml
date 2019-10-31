@@ -5,6 +5,14 @@
 		<title>f3270</title>
 	</properties>
 	<body>
+		<release version="1.4.0" date="2018-10-31" description="improving keys">
+			<action dev="kdoerges" type="add">
+				add attn, tab to terminal api
+			</action>
+			<action dev="kdoerges" type="code smell">
+				quick fixes, remove code smells
+			</action>
+		</release>
 		<release version="1.3.0" date="2018-05-25" description="refactoring">
 			<action dev="kdoerges" type="add">
 				added boolean driver.isConnected() method in driver api

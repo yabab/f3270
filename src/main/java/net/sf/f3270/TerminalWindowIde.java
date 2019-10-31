@@ -16,6 +16,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.UIManager;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
@@ -55,7 +56,7 @@ public class TerminalWindowIde {
         final Container contentPane = frame.getContentPane();
         contentPane.setBackground(new Color(224, 224, 224));
         contentPane.add(mainPane, BorderLayout.CENTER);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(true);
         frame.pack();
         frame.setVisible(true);

@@ -2,6 +2,7 @@ package net.sf.f3270;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -20,6 +21,7 @@ import javax.swing.JTable;
 import javax.swing.JTextPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.AbstractTableModel;
@@ -220,7 +222,7 @@ public class TerminalWindow {
 		contentPane.add(tabbedPane, BorderLayout.NORTH);
 		contentPane.add(debugPanel, BorderLayout.CENTER);
 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.pack();
 		frame.setVisible(true);
@@ -258,7 +260,7 @@ public class TerminalWindow {
 		final JScrollPane textPaneDebugScroller = new JScrollPane(textPaneDebug);
 		textPaneDebugScroller.setPreferredSize(new Dimension(textPane3270
 				.getWidth(), 3 + 10 * fontMetricsSans.getHeight()));
-		textPaneDebugScroller.setAlignmentX(JDialog.LEFT_ALIGNMENT);
+		textPaneDebugScroller.setAlignmentX(Component.LEFT_ALIGNMENT);
 		textPaneDebugScroller.setBorder(new LineBorder(Color.gray));
 		textPaneDebugScroller.setAutoscrolls(true);
 		return textPaneDebugScroller;
@@ -267,7 +269,7 @@ public class TerminalWindow {
 	private void buildTextPane3270() {
 		textPane3270 = createTextPane(monospacedFont, Color.black);
 		updateTextPane3270Size();
-		textPane3270.setAlignmentX(JDialog.LEFT_ALIGNMENT);
+		textPane3270.setAlignmentX(Component.LEFT_ALIGNMENT);
 	}
 
 	private boolean updateTextPane3270Size() {

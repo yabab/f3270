@@ -26,6 +26,7 @@ import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
 
 import net.sf.f3270.Parameter;
@@ -74,7 +75,7 @@ public class Ide {
     private JFrame getJFrame() {
         if (jFrame == null) {
             jFrame = new JFrame();
-            jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             // jFrame.setSize(500, 500);
             jFrame.setContentPane(getJContentPane());
             jFrame.setTitle("Application");

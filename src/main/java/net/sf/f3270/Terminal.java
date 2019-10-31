@@ -170,7 +170,6 @@ public class Terminal {
     
     public void tab() {
     	assertConnected();
-    	s3270.submitScreen();
     	s3270.tab();
     	updateScreen();
     	commandIssued("tab", null);
@@ -191,11 +190,25 @@ public class Terminal {
         commandIssued("pa", null, new Parameter("n", n));
     }
     
+    public void attn() {
+    	assertConnected();
+    	s3270.attn();
+    	updateScreen();
+    	commandIssued("attn", null);
+    }
+    
     public void clear() {
         assertConnected();
         s3270.clear();
         updateScreen();
         commandIssued("clear", null);
+    }
+    
+    public void sysReq() {
+    	assertConnected();
+    	s3270.sysReq();
+    	updateScreen();
+    	commandIssued("sysReq", null);
     }
 
     public void type(final String text) {
