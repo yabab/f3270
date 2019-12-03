@@ -57,6 +57,7 @@ public class S3270 {
     private final TerminalType type;
     private final TerminalModel mode;
     private final HostCharset charset;
+    private final String trace;
 
     private S3270Screen screen = null;
 
@@ -99,7 +100,7 @@ public class S3270 {
      *             for any other error not matched by the above
      */
     public S3270(final String s3270Path, final String hostname, final int port, final TerminalType type, final HostCharset hostCharset,
-            final TerminalModel mode) {
+            final TerminalModel mode, final boolean trace) {
 
         this.s3270Path = s3270Path;
         this.hostname = hostname;
@@ -107,12 +108,13 @@ public class S3270 {
         this.type = type;
         this.mode = mode;
         this.charset = hostCharset;
+        this.trace = "-trace";
         this.screen = new S3270Screen();
 
         checkS3270PathValid(s3270Path);
 
-        final String commandLine = String.format("%s -model %s-%d %s:%d -charset %s", this.s3270Path, this.type.getType(), this.mode.getMode(),
-                this.hostname, this.port, this.charset.getCharsetName());
+        final String commandLine = String.format("%s -model %s-%d %s:%d -charset %s %s", this.s3270Path, this.type.getType(), this.mode.getMode(),
+                this.hostname, this.port, this.charset.getCharsetName(), this.trace);
         try {
             logger.info("starting " + commandLine);
             s3270 = Runtime.getRuntime().exec(commandLine);
@@ -141,7 +143,7 @@ public class S3270 {
      */
     public S3270(final String s3270Path, final String hostname, final int port, final TerminalType type,
             final TerminalModel mode) {
-    	this(s3270Path, hostname, port, type, HostCharset.BRACKET, mode);
+    	this(s3270Path, hostname, port, type, HostCharset.BRACKET, mode, false);
     }
 
     private void checkS3270PathValid(String path) {
@@ -493,6 +495,11 @@ public class S3270 {
         waitFormat();
     }
 
+    public void moveCursor(final int row, final int col) {
+    	doCommand("movecursor(" + row + ", " + col +")");
+    	waitFormat();
+    }
+    
     public void reset() {
         doCommand("reset");
     }

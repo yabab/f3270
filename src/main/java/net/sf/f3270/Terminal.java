@@ -93,7 +93,7 @@ public class Terminal {
     }
 
     public Terminal connect() {
-        s3270 = new S3270(this.s3270Path, this.hostname, this.port, this.type, this.charset, this.mode);
+        s3270 = new S3270(this.s3270Path, this.hostname, this.port, this.type, this.charset, this.mode, true);
         s3270.setDebug(this.debug);
         updateScreen();
         for (TerminalObserver observer : observers) {
@@ -173,6 +173,14 @@ public class Terminal {
     	s3270.tab();
     	updateScreen();
     	commandIssued("tab", null);
+    }
+   
+    public void moveCursor(final int row, final int col) {
+    	assertConnected();
+    	s3270.submitScreen();
+        s3270.moveCursor(row, col);
+        updateScreen();
+        commandIssued("movecursor", null, new Parameter("row", row), new Parameter("col", col));
     }
     
     public void pf(final int n) {

@@ -5,7 +5,23 @@
 		<title>f3270</title>
 	</properties>
 	<body>
-		<release version="1.4.0" date="2018-10-31" description="improving keys">
+		<release version="1.5.0" date="2019-11-30"
+			description="improving keys">
+			<action dev="kdoerges" type="add">
+				add tests: HostCharset
+			</action>
+			<action dev="kdoerges" type="add">
+				make trace configurable
+			</action>
+			<action dev="kdoerges" type="add">
+				add moveCursor to terminal
+			</action>
+			<action dev="kdoerges" type="bugfix">
+				verifyText: calculation of end of string
+			</action>
+		</release>
+		<release version="1.4.0" date="2018-10-31"
+			description="improving keys">
 			<action dev="kdoerges" type="add">
 				add attn, tab to terminal api
 			</action>
@@ -13,54 +29,75 @@
 				quick fixes, remove code smells
 			</action>
 		</release>
-		<release version="1.3.0" date="2018-05-25" description="refactoring">
+		<release version="1.3.0" date="2018-05-25"
+			description="refactoring">
 			<action dev="kdoerges" type="add">
-				added boolean driver.isConnected() method in driver api
+				added boolean driver.isConnected()
+				method in driver api
 			</action>
 			<action dev="kdoerges" type="update">
-				Refactor TerminalType and TerminalMode to their own enumerator.
+				Refactor TerminalType and
+				TerminalMode to their own enumerator.
 			</action>
 		</release>
-		<release version="1.2.0" date="2018-04-20" description="support character sets">
+		<release version="1.2.0" date="2018-04-20"
+			description="support character sets">
 			<action dev="kdoerges" type="update">
-				Refactor vebtal api to make engine more independent.
+				Refactor vebtal api to make engine
+				more independent.
 			</action>
 			<action dev="kdoerges" type="add">
-				Initialize emulator with character set. Codepage support in terminal api. Use HostCharset.BRACKET as default.
+				Initialize emulator with character
+				set. Codepage support in terminal api. Use HostCharset.BRACKET as
+				default.
 			</action>
 			<action dev="kdoerges" type="update">
-				Update build process for central artefact upload.
+				Update build process for central
+				artefact upload.
 			</action>
 		</release>
-		<release version="1.1.0" date="2018-03-20" description="initial release with maven build">
+		<release version="1.1.0" date="2018-03-20"
+			description="initial release with maven build">
 			<action dev="kdoerges" type="add">
-				Added maven support. Updated dependencies.
+				Added maven support. Updated
+				dependencies.
 			</action>
 			<action dev="kdoerges" type="add">
-				New TerminalResource rule for JUnit. Old s3270 emulator removed. Use new s3270 version >= 3.5 
+				New TerminalResource rule for
+				JUnit. Old s3270 emulator removed. Use new s3270 version >= 3.5
 			</action>
 			<action dev="kdoerges" type="add">
-				New TerminalResource rule for JUnit 
+				New TerminalResource rule for
+				JUnit
 			</action>
 			<action dev="kdoerges" type="add">
-				New write command without setting input field  
+				New write command without setting
+				input field
 			</action>
 			<action dev="kdoerges" type="add">
-				Support Debug Mode, use &quot;setTerminalDebug(boolean isDebug)&quot; in Terminal API to enable emulator debug mode. 
+				Support Debug Mode, use
+				&quot;setTerminalDebug(boolean isDebug)&quot; in Terminal API to
+				enable emulator debug mode.
 			</action>
 			<action dev="kdoerges" type="add">
-				new UserCredentialsResource rule for JUnit  
+				new UserCredentialsResource rule
+				for JUnit
 			</action>
 			<action dev="kdoerges" type="add">
-				Add MusicSP function test to JUnit test area.  
+				Add MusicSP function test to JUnit
+				test area.
 			</action>
 			<action dev="kdoerges" type="add">
-				FieldIdentifier is case sensitive by default now , implemented new CI_CONTAINS MatchMode for case insensitve contains   
+				FieldIdentifier is case sensitive
+				by default now , implemented new CI_CONTAINS MatchMode for case
+				insensitve contains
 			</action>
 			<action dev="kdoerges" type="update">
-				Update of the build process to separate unit and integration test. Implemented categoy marker interfaces for UnitTests and IntegrationTests				   
+				Update of the build process to
+				separate unit and integration test. Implemented categoy marker
+				interfaces for UnitTests and IntegrationTests
 			</action>
-			
+
 		</release>
 	</body>
 </document>
