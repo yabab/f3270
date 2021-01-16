@@ -114,7 +114,7 @@
 				<version>2.22.0</version>
 				<configuration>
 					<skipTests>${skip.unit.tests}</skipTests>
-					<!-- run all tests, tagged with categoy (UnitTests) -->
+					<!-- run all tests, tagged with category (UnitTests) -->
 					<groups>net.sf.f3270.UnitTests</groups>
 				</configuration>
 			</plugin>
