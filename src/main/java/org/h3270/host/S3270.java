@@ -31,6 +31,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -297,8 +298,9 @@ public class S3270 {
         // second-rate approach: wait a little while, and then check if
         // the process is already terminated.
         try {
-            Thread.sleep(100);
+            s3270.waitFor(5000, TimeUnit.MILLISECONDS);
         } catch (final InterruptedException ex) {
+            // Do nothing
         }
         try {
             final int exitValue = s3270.exitValue();
