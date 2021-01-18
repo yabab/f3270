@@ -231,18 +231,16 @@ public class S3270 {
                 final String line = in.readLine();
                 if (line == null) {
                     checkS3270Process(); // will throw appropriate exception
-                    // if we get here, it's a more obscure error
-                    throw new RuntimeException("s3270 process not responding");
-                }
+                } else {
+                    if (logger.isDebugEnabled()) {
+                        logger.debug("<--- " + line);
+                    }
 
-                if (logger.isDebugEnabled()) {
-                    logger.debug("<--- " + line);
+                    if (line.equals("ok")) {
+                        break;
+                    }
+                    lines.add(line);
                 }
-
-                if (line.equals("ok")) {
-                    break;
-                }
-                lines.add(line);
             }
             final int size = lines.size();
             if (size > 0) {
@@ -288,21 +286,18 @@ public class S3270 {
     // This is the hard-coded part of the error message in s3270 version 3.3.5.
             "Connect to ([^,]+), port ([0-9]+): (.*)");
 
+    private static final Pattern noProcessFilePattern = Pattern.compile(
+            // This is a regular expression that matches the error message thrown
+            // when the process tries to access the s3270 process file too fast
+            "/tmp/x3trc.(\\d+): No such file or directory");
+
     /**
      * Checks whether the s3270 process is still running, and if it isn't, tries to determine the cause why it failed.
      * This method throws an exception of appropriate type to indicate what went wrong.
      */
     private void checkS3270Process() {
-        // Ideally, we'd like to call Process.waitFor() with a timeout,
-        // but that is so complicated to implement that we take a
-        // second-rate approach: wait a little while, and then check if
-        // the process is already terminated.
         try {
             s3270.waitFor(5000, TimeUnit.MILLISECONDS);
-        } catch (final InterruptedException ex) {
-            // Do nothing
-        }
-        try {
             final int exitValue = s3270.exitValue();
             final String message = errorReader.message;
             if (exitValue == 1 && message != null) {
@@ -313,12 +308,27 @@ public class S3270 {
                     m = unreachablePattern.matcher(message);
                     if (m.matches()) {
                         throw new HostUnreachableException(m.group(1), m.group(3));
+                    } else {
+                        m = noProcessFilePattern.matcher(message);
+                        if (m.matches()) {
+                            try {
+                                s3270 = Runtime.getRuntime().exec(String.format("%s -model %s-%d %s:%d -charset %s %s", this.s3270Path, this.type.getType(), this.mode.getMode(),
+                                        this.hostname, this.port, this.charset.getCharsetName(), this.trace));
+
+                                out = new PrintWriter(new OutputStreamWriter(s3270.getOutputStream(), "ISO-8859-1"));
+                                in = new BufferedReader(new InputStreamReader(s3270.getInputStream(), "ISO-8859-1"));
+                                errorReader = new ErrorReader();
+                                errorReader.start();
+                            } catch (IOException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                        } else {
+                            throw new S3270Exception("s3270 terminated with code " + exitValue + ", message: " + errorReader.message);
+                        }
                     }
                 }
-                throw new S3270Exception("s3270 terminated with code " + exitValue + ", message: "
-                        + errorReader.message);
             }
-        } catch (final IllegalThreadStateException ex) {
+        } catch (final IllegalThreadStateException | InterruptedException ex) {
             // we get here if the process has still been running in the
             // call to s3270.exitValue() above
             throw new S3270Exception("s3270 not terminated, error: " + errorReader.message);
